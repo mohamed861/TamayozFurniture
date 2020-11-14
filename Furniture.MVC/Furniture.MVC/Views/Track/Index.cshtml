@@ -1,0 +1,99 @@
+﻿@model TrackDto
+@{
+
+    ViewData["Title"] = "نقل اثاث";
+}
+
+<section class="breadcrumb">
+    <div class="custom-shape-divider-bottom-1604910460">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+                  class="shape-fill"></path>
+        </svg>
+    </div>
+    <div class="d-flex row justify-content-around align-items-center">
+        <img class="image" src="~/img/7628.jpg" style="width: 50%; border-radius: 50%;">
+        <div>
+            <h2 class="mb-5"><span class="text-success" style="font-size: larger;">التميز</span> لنقل الأثاث في نفس اليوم</h2>
+            <h5 class="mb-3 pr-2">
+                استخدم موقع أو تطبيق <span class="text-success" style="font-size: larger;">التميز</span> لنقل أثاثك بسهولة وأمان
+            </h5>
+            <!--<h6>لاختيار المدينة التي تريد نقل أثاثك اليها <a href="#">اضغط هنا</a></h6>-->
+            <div><a class="btn btn-success btn-block btn-lg" role="button">احجز الآن</a></div>
+        </div>
+    </div>
+</section>
+
+<!--================Tracking Box Area =================-->
+<section class="tracking_box_area" id="request">
+    <div class="container">
+        <div class="row align-items-center">
+            <form asp-action="index" method="post" role="form" class="col-12">
+                <div class="tracking_box_inner d-flex justify-content-lg-around justify-content-sm-around align-items-center bg-white">
+                    <h2>خدمة نقل أثاث</h2>
+                    <div class="row tracking_form">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <label asp-for="fromCity" class="fromCity">
+                                    ...من مدينة
+                                </label>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white border border-info">
+                                        <i class="fas fa-map-marker-alt text-info"></i>
+                                    </div>
+                                </div>
+                                <select class="form-control border border-info" name="fromCity" asp-for="fromCity" id="fromCity" style="border-radius: 0;">
+                                    <option value="@null">اختر مدينة</option>
+                                    @foreach (var city in Model.Ksacities)
+                                    {
+                                        <option class="fromCity" value="@city.Id">
+                                            @city.Name
+                                        </option>
+                                    }
+                                </select>
+                                <span asp-validation-for="fromCity" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="flex justify-content-between align-items-center">  -->
+
+                    <div class="row tracking_form d-inline-block">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <label asp-for="toCity" class="toCity">
+                                    ...إلى مدينة
+                                </label>
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text bg-white border border-info">
+                                        <i class="fas fa-map-marker-alt text-info"></i>
+                                    </div>
+                                </div>
+
+                                <select class="form-control border border-info" asp-for="toCity" name="toCity" id="toCity" style="border-radius: 0;">
+                                    <option value="@null">اختر مدينة</option>
+                                    @foreach (var city in Model.Ksacities)
+                                    {
+                                        <option class="fromCity" value="@city.Id">
+                                            @city.Name
+                                        </option>
+                                    }
+                                </select>
+                                <span asp-validation-for="toCity" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 form-group m-auto" style="width:50%;">
+                    <button class="btn btn-block bg-success btn-lg mt-10 text-white" type="submit" role="button" id="btn">
+                        <i class="fas fa-database ml-2" aria-hidden="true"></i>
+                        ارسال الطلب
+                    </button>
+                    <div class="alert" role="alert" id="demo">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</section>
