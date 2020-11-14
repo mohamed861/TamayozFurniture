@@ -1,0 +1,56 @@
+@font-face{
+    font-family: 'customFont';
+    src:url('../fonts/DroidKufi-Regular.ttf');
+}
+body * {
+  font-family: 'Cairo', sans-serif;
+}
+
+.item-select select {
+  padding: 0 16px 0 48px;
+  right: auto;
+  left: 0;
+  direction: ltr;
+  background-color: red;
+  }
+  .single_product_item .single_product_text a:hover {
+    color: #ff3368;
+  }
+  .single_product_item .single_product_text a i, .single_product_item .single_product_text a i:hover {
+    color: #1cd161;
+    margin-left:10px ;
+  }
+  .hide_overflow_text{
+    min-height: 20px;
+    max-height: 63px;
+    overflow-y: hidden;
+  }
+  .single_product_item .single_product_text .price_color {
+    color: #ff3368;
+    font-weight: bold;
+  }
+  .currency_color{
+    color: #ff3368;
+margin-right: 5px;
+  }
+  .item-select:after {
+  left: 16px;
+  right: auto;
+  }
+
+  .product_top_bar .single_product_menu .input-group {
+    width: 250px;
+  }
+  .p_filter_widgets .list li a{
+    /* font-family: 'customFont'; */
+    font-family: 'Cairo', sans-serif;
+  }
+  .custom-select-header{
+    display: inline-block;
+    margin-left: 5px;
+  }
+  .product_top_bar .single_product_menu {
+    width: 100%;
+    float: right;
+    margin-bottom: 20px;
+  }
