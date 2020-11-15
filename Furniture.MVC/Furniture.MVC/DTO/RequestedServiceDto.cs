@@ -28,20 +28,4 @@ namespace Furniture.MVC.DTO
         [Required(ErrorMessage = "يجب ادخال الهاتف")]
         public string Phone { get; set; }
     }
-    public class HomeDto
-    {
-        public List<AnnouncementDto> Announcements { get; set; }
-        public List<ServiceDto> Services { get; set; }
-
-    }
-    public class AnnouncementDto
-    {
-        public string AnnounceContent { get; set; }
-        public string AnnounceHeader { get; set; }
-    }
-    public class ServiceDto
-    {
-        public int Id { get; set; }
-        public string ServiceName { get; set; }
-    }
 }
