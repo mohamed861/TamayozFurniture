@@ -38,5 +38,33 @@ namespace Furniture.MVC.Data
         {
             return await _context.Services.ToListAsync();
         }
+
+        public async Task<List<UsersComment>> GetComments()
+        {
+            var comments = await _context.UsersComments.ToListAsync();
+            return comments;
+        }
+
+        public async Task<UsersComment> AddtComment(UsersComment comment)
+        {
+            await _context.AddAsync(comment);
+            return comment;
+        }
+
+        public async Task<double?> GetAverageRate()
+        {
+            return await _context.UsersComments.AverageAsync(a => a.Rating);
+
+        }
+
+        public async Task<int> GetCommentCount()
+        {
+            return await _context.UsersComments.CountAsync();
+        }
+
+        public async Task<List<Announcement>> GetAnnounces()
+        {
+            return await _context.Announcements.Where(a => a.AnnounceExpireDate <= DateTime.Now).ToListAsync();
+        }
     }
 }
