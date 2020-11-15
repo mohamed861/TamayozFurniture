@@ -24,12 +24,16 @@ namespace Furniture.MVC.Controllers
                 Services = services.Select(a => new ServiceDto
                 {
                     Id = a.Id,
-                    ServiceName = a.ServiceName
+                    ServiceName = a.ServiceName,
+                    ServiceDescription = a.ServiceDescription,
+                    ServicePhotoPath = a.ServicePhotoPath,
+                    ServiceSubHeader = a.ServiceSubHeader
                 }).ToList(),
                 Announcements = announces.Select(a => new AnnouncementDto
                 {
                     AnnounceContent = a.AnnounceContent,
-                    AnnounceHeader = a.AnnounceHeader
+                    AnnounceHeader = a.AnnounceHeader,
+                    AnnouncePhotoPath = a.AnnouncePhotoPath
                 }).ToList()
             };
             return View(homeDto);

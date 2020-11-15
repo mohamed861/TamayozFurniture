@@ -14,7 +14,7 @@
         @foreach (var announce in Model.Announcements)
         {
             <div class="carousel-item active">
-                <img class="d-block w-100" src="~/img/slider.jpg" alt="First slide">
+                <img class="d-block w-100" src="@announce.AnnouncePhotoPath" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <a href="#">
                         <h2>@announce.AnnounceHeader</h2>
@@ -69,15 +69,14 @@
                             <div class="flip-card">
                                 <div class="flip-card-inner">
                                     <div class="flip-card-front">
-                                        <img src="~/img/service1.jpg" alt="service" style="width:300px;height:300px;">
+                                        <img src="@service.ServicePhotoPath" alt="service" style="width:300px;height:300px;">
                                     </div>
                                     <div class="flip-card-back">
                                         <h1>@service.ServiceName</h1>
                                         <hr style="margin: 0 30px">
-                                        <p>نبذة مختصرة عن الخدمة</p>
+                                        <p>@service.ServiceSubHeader</p>
                                         <p>
-                                            بعض التفاصيل الأخرى التى تخص كل خدمة و الفائدة التى تعود على العميل فى هذه الخدمة مع ذكر مواصفات
-                                            هذه الخدمة بكل ما تحتويه من معلومات ليتم تعريف الخدمة بشكل كامل دون الحاجة إلى الرجوع لصاحب الموقع
+                                            @service.ServiceDescription
                                         </p>
                                     </div>
                                 </div>
