@@ -5,7 +5,7 @@ const checkBoxFromCityElement = document.getElementsByClassName("fromCity");
 const checkBoxToCityElement = document.getElementsByClassName('toCity');
 const alert = document.getElementById("demo");
 const request = document.getElementById("request1");
-btn.addEventListener('click', RequestOrder);
+//btn.addEventListener('click', RequestOrder);
 //btn.addEventListener('click', disappearAfterTime);
 function RequestOrder(){
     for (var i of checkBoxFromCityElement){

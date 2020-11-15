@@ -36,6 +36,7 @@ namespace Furniture.MVC.Controllers
                     AnnouncePhotoPath = a.AnnouncePhotoPath
                 }).ToList()
             };
+            homeDto.Announcements.First().IsActive = true;
             return View(homeDto);
         }
 
