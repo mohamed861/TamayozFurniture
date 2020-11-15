@@ -9,7 +9,12 @@ namespace Furniture.MVC.Data
     {
         Task<List<Ksacity>> GetKsacities();
         Task<List<Service>> GetServices();
+        Task<List<UsersComment>> GetComments();
+        Task<UsersComment> AddtComment(UsersComment comment);
         Task<RequestService> AddOrder(RequestService order);
+        Task<double?> GetAverageRate();
+        Task<int> GetCommentCount();
+        Task<List<Announcement>> GetAnnounces();
         Task<bool> SaveChanges();
     }
 }

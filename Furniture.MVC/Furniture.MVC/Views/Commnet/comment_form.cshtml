@@ -1,0 +1,74 @@
+﻿@model UserCommentsDto
+<form class="row contact_form" asp-action="comment" method="post" role="form" novalidate="novalidate">
+    <h4>أضف رأيك</h4>
+    <p>تقييمك :</p>
+    <ul class="list">
+        <li style="cursor:pointer">
+            <a>
+                <i class="fa fa-star" onclick="setValuu(1)"></i>
+            </a>
+        </li>
+        <li>
+            <a>
+                <i class="fa fa-star" onclick="setValuu(2)"></i>
+            </a>
+        </li>
+        <li>
+            <a>
+                <i class="fa fa-star" onclick="setValuu(3)"></i>
+            </a>
+        </li>
+        <li>
+            <a>
+                <i class="fa fa-star" onclick="setValuu(4)"></i>
+            </a>
+        </li>
+        <li>
+            <a>
+                <i class="fa fa-star" onclick="setValuu(5)"></i>
+            </a>
+        </li>
+        <input id="rating" type="hidden" asp-for="Rating" />
+    </ul>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label asp-for="UserFullName">الاسم بالكامل</label>
+            <input type="text" class="form-control" asp-for="UserFullName" id="UserFullName" placeholder="الاسم بالكامل" />
+            <span asp-validation-for="UserFullName" class="text-danger"></span>
+
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="form-group">
+            <label asp-for="UserEmail">البريد الالكترونى</label>
+
+            <input type="email" class="form-control" asp-for="UserEmail" id="UserEmail" placeholder="البريد الالكترونى" />
+            <span asp-validation-for="UserEmail" class="text-danger"></span>
+
+        </div>
+    </div>
+    @*<div class="col-md-12">
+            <div class="form-group">
+                <input type="text" class="form-control" asp-for="Comments.ph" name="number" placeholder="رقم الهاتف" />
+            </div>
+        </div>*@
+    <div class="col-md-12">
+        <div class="form-group">
+            <label asp-for="CommentText">التقييم والمراجعه</label>
+            <textarea class="form-control" asp-for="CommentText" id="CommentText" rows="1" placeholder="التقييم والمراجعه"></textarea>
+            <span asp-validation-for="CommentText" class="text-danger"></span>
+
+        </div>
+    </div>
+    <div class="col-md-12 text-right">
+        <button type="submit" value="submit" class="btn_3">
+            تأكيد
+        </button>
+    </div>
+</form>
+<script>
+    function setValuu(a) {
+        console.log(a);
+        document.getElementById("rating").value = a;
+    }
+</script>
