@@ -19,6 +19,7 @@ namespace Furniture.MVC.Controllers
         {
             var services = await _repo.GetServices();
             var announces = await _repo.GetAnnounces();
+            var userComments = await _repo.GetComments();
             var homeDto = new HomeDto
             {
                 Services = services.Select(a => new ServiceDto
@@ -34,9 +35,14 @@ namespace Furniture.MVC.Controllers
                     AnnounceContent = a.AnnounceContent,
                     AnnounceHeader = a.AnnounceHeader,
                     AnnouncePhotoPath = a.AnnouncePhotoPath
+                }).ToList(),
+                UserComments = userComments.Select(a => new UserCommentsDto
+                {
+                    CommentText = a.CommentText,
+                    UserFullName = a.UserFullName
                 }).ToList()
             };
-            homeDto.Announcements.First().IsActive = true;
+            homeDto.Announcements.First().Active = "active";
             return View(homeDto);
         }
 
