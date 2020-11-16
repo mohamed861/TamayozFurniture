@@ -9,31 +9,17 @@
     <div class="carousel-inner">
         @foreach (var announce in Model.Announcements)
         {
-            @if (announce.IsActive)
-            {
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="@announce.AnnouncePhotoPath" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <a href="#">
-                            <h2>@announce.AnnounceHeader</h2>
-                            <p>@announce.AnnounceContent</p>
-                        </a>
-                    </div>
-                </div>
-            }
-            else
-            {
-                <div class="carousel-item ">
-                    <img class="d-block w-100" src="@announce.AnnouncePhotoPath" alt="First slide">
-                    <div class="carousel-caption d-none d-md-block">
-                        <a href="#">
-                            <h2>@announce.AnnounceHeader</h2>
-                            <p>@announce.AnnounceContent</p>
-                        </a>
-                    </div>
-                </div>
 
-            }
+            <div class="carousel-item @announce.Active ">
+                <img class="d-block w-100" src="@announce.AnnouncePhotoPath" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <a href="#">
+                        <h2>@announce.AnnounceHeader</h2>
+                        <p>@announce.AnnounceContent</p>
+                    </a>
+                </div>
+            </div>
+
 
         }
     </div>
@@ -80,166 +66,6 @@
 
             }
 
-            @*<div class="col-lg-4 col-sm-6">
-                    <div class="single_product_item">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="~/img/service2.jpg" alt="service" style="width:300px;height:300px;">
-                                </div>
-                                <div class="flip-card-back">
-                                    <h1>اسم الخدمة الأولى</h1>
-                                    <hr style="margin: 0 30px">
-                                    <p>نبذة مختصرة عن الخدمة</p>
-                                    <p>
-                                        بعض التفاصيل الأخرى التى تخص كل خدمة و الفائدة التى تعود على العميل فى هذه الخدمة مع ذكر مواصفات
-                                        هذه الخدمة بكل ما تحتويه من معلومات ليتم تعريف الخدمة بشكل كامل دون الحاجة إلى الرجوع لصاحب الموقع
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="single_product_item">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="~/img/service1.jpg" alt="service" style="width:300px;height:300px;">
-                                </div>
-                                <div class="flip-card-back">
-                                    <h1>اسم الخدمة الأولى</h1>
-                                    <hr style="margin: 0 30px">
-                                    <p>نبذة مختصرة عن الخدمة</p>
-                                    <p>
-                                        بعض التفاصيل الأخرى التى تخص كل خدمة و الفائدة التى تعود على العميل فى هذه الخدمة مع ذكر مواصفات
-                                        هذه الخدمة بكل ما تحتويه من معلومات ليتم تعريف الخدمة بشكل كامل دون الحاجة إلى الرجوع لصاحب الموقع
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="single_product_item">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="~/img/service2.jpg" alt="service" style="width:300px;height:300px;">
-                                </div>
-                                <div class="flip-card-back">
-                                    <h1>اسم الخدمة الأولى</h1>
-                                    <hr style="margin: 0 30px">
-                                    <p>نبذة مختصرة عن الخدمة</p>
-                                    <p>
-                                        بعض التفاصيل الأخرى التى تخص كل خدمة و الفائدة التى تعود على العميل فى هذه الخدمة مع ذكر مواصفات
-                                        هذه الخدمة بكل ما تحتويه من معلومات ليتم تعريف الخدمة بشكل كامل دون الحاجة إلى الرجوع لصاحب الموقع
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="single_product_item">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="~/img/service1.jpg" alt="service" style="width:300px;height:300px;">
-                                </div>
-                                <div class="flip-card-back">
-                                    <h1>اسم الخدمة الأولى</h1>
-                                    <hr style="margin: 0 30px">
-                                    <p>نبذة مختصرة عن الخدمة</p>
-                                    <p>
-                                        بعض التفاصيل الأخرى التى تخص كل خدمة و الفائدة التى تعود على العميل فى هذه الخدمة مع ذكر مواصفات
-                                        هذه الخدمة بكل ما تحتويه من معلومات ليتم تعريف الخدمة بشكل كامل دون الحاجة إلى الرجوع لصاحب الموقع
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="single_product_item">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="~/img/service2.jpg" alt="service" style="width:300px;height:300px;">
-                                </div>
-                                <div class="flip-card-back">
-                                    <h1>اسم الخدمة الأولى</h1>
-                                    <hr style="margin: 0 30px">
-                                    <p>نبذة مختصرة عن الخدمة</p>
-                                    <p>
-                                        بعض التفاصيل الأخرى التى تخص كل خدمة و الفائدة التى تعود على العميل فى هذه الخدمة مع ذكر مواصفات
-                                        هذه الخدمة بكل ما تحتويه من معلومات ليتم تعريف الخدمة بشكل كامل دون الحاجة إلى الرجوع لصاحب الموقع
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="single_product_item">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="~/img/service1.jpg" alt="service" style="width:300px;height:300px;">
-                                </div>
-                                <div class="flip-card-back">
-                                    <h1>اسم الخدمة الأولى</h1>
-                                    <hr style="margin: 0 30px">
-                                    <p>نبذة مختصرة عن الخدمة</p>
-                                    <p>
-                                        بعض التفاصيل الأخرى التى تخص كل خدمة و الفائدة التى تعود على العميل فى هذه الخدمة مع ذكر مواصفات
-                                        هذه الخدمة بكل ما تحتويه من معلومات ليتم تعريف الخدمة بشكل كامل دون الحاجة إلى الرجوع لصاحب الموقع
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="single_product_item">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="~/img/service2.jpg" alt="service" style="width:300px;height:300px;">
-                                </div>
-                                <div class="flip-card-back">
-                                    <h1>اسم الخدمة الأولى</h1>
-                                    <hr style="margin: 0 30px">
-                                    <p>نبذة مختصرة عن الخدمة</p>
-                                    <p>
-                                        بعض التفاصيل الأخرى التى تخص كل خدمة و الفائدة التى تعود على العميل فى هذه الخدمة مع ذكر مواصفات
-                                        هذه الخدمة بكل ما تحتويه من معلومات ليتم تعريف الخدمة بشكل كامل دون الحاجة إلى الرجوع لصاحب الموقع
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <div class="single_product_item">
-                        <div class="flip-card">
-                            <div class="flip-card-inner">
-                                <div class="flip-card-front">
-                                    <img src="~/img/service1.jpg" alt="service" style="width:300px;height:300px;">
-                                </div>
-                                <div class="flip-card-back">
-                                    <h1>اسم الخدمة الأولى</h1>
-                                    <hr style="margin: 0 30px">
-                                    <p>نبذة مختصرة عن الخدمة</p>
-                                    <p>
-                                        بعض التفاصيل الأخرى التى تخص كل خدمة و الفائدة التى تعود على العميل فى هذه الخدمة مع ذكر مواصفات
-                                        هذه الخدمة بكل ما تحتويه من معلومات ليتم تعريف الخدمة بشكل كامل دون الحاجة إلى الرجوع لصاحب الموقع
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>*@
         </div>
     </div>
 </section>
@@ -261,56 +87,19 @@
         <div class="row align-items-center justify-content-between">
             <div class="col-lg-12">
                 <div class="best_product_slider owl-carousel">
-                    <div class="single_product_item text-center">
-                        <img src="~/img/client.png" alt="">
-                        <div class="single_product_text">
-                            <h4>اسم العميل</h4>
-                            <h3>
-                                رأى العميل فى شركتنا و المنتجات الخاصة بنا و الخدمات التى نقدمها و طريقة التعامل معنا و التواصل معنا
-                                من خلال الهاتف او السوشيال ميديا
-                            </h3>
+                    @foreach (var comment in Model.UserComments)
+                    {
+                        <div class="single_product_item text-center">
+                            <img src="~/img/client.png" alt="">
+                            <div class="single_product_text">
+                                <h4>@comment.UserFullName</h4>
+                                <h3>
+                                    @comment.CommentText
+                                </h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="single_product_item text-center">
-                        <img src="~/img/client.png" alt="">
-                        <div class="single_product_text">
-                            <h4>اسم العميل</h4>
-                            <h3>
-                                رأى العميل فى شركتنا و المنتجات الخاصة بنا و الخدمات التى نقدمها و طريقة التعامل معنا و التواصل معنا
-                                من خلال الهاتف او السوشيال ميديا
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="single_product_item text-center">
-                        <img src="~/img/client.png" alt="">
-                        <div class="single_product_text">
-                            <h4>اسم العميل</h4>
-                            <h3>
-                                رأى العميل فى شركتنا و المنتجات الخاصة بنا و الخدمات التى نقدمها و طريقة التعامل معنا و التواصل معنا
-                                من خلال الهاتف او السوشيال ميديا
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="single_product_item text-center">
-                        <img src="~/img/client.png" alt="">
-                        <div class="single_product_text">
-                            <h4>اسم العميل</h4>
-                            <h3>
-                                رأى العميل فى شركتنا و المنتجات الخاصة بنا و الخدمات التى نقدمها و طريقة التعامل معنا و التواصل معنا
-                                من خلال الهاتف او السوشيال ميديا
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="single_product_item text-center">
-                        <img src="~/img/client.png" alt="">
-                        <div class="single_product_text">
-                            <h4>اسم العميل</h4>
-                            <h3>
-                                رأى العميل فى شركتنا و المنتجات الخاصة بنا و الخدمات التى نقدمها و طريقة التعامل معنا و التواصل معنا
-                                من خلال الهاتف او السوشيال ميديا
-                            </h3>
-                        </div>
-                    </div>
+
+                    }
                 </div>
             </div>
         </div>
