@@ -1,35 +1,67 @@
 ﻿@model UserCommentsDto
+<style>
+    .rating {
+        width: 90px;
+        unicode-bidi: bidi-override;
+        direction: rtl;
+        text-align: center;
+        position: relative;
+    }
+
+        .rating > label {
+            float: right;
+            display: inline;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            width: 1.1em;
+            cursor: pointer;
+            color: #000;
+        }
+
+    .hide {
+        display: none;
+    }
+
+    .clear {
+        float: none;
+        clear: both;
+    }
+
+    .rating > label:hover,
+    .rating > label:hover ~ label,
+    .rating > input.radio-btn:checked ~ label {
+        color: transparent;
+    }
+
+        .rating > label:hover:before,
+        .rating > label:hover ~ label:before,
+        .rating > input.radio-btn:checked ~ label:before,
+        .rating > input.radio-btn:checked ~ label:before {
+            content: "\2605";
+            position: absolute;
+            left: 0;
+            color: #FFD700;
+        }
+</style>
 <form class="row contact_form" asp-action="comment" method="post" role="form" novalidate="novalidate">
     <h4>أضف رأيك</h4>
     <p>تقييمك :</p>
-    <ul class="list">
-        <li style="cursor:pointer">
-            <a>
-                <i class="fa fa-star" onclick="setValuu(1)"></i>
-            </a>
-        </li>
-        <li>
-            <a>
-                <i class="fa fa-star" onclick="setValuu(2)"></i>
-            </a>
-        </li>
-        <li>
-            <a>
-                <i class="fa fa-star" onclick="setValuu(3)"></i>
-            </a>
-        </li>
-        <li>
-            <a>
-                <i class="fa fa-star" onclick="setValuu(4)"></i>
-            </a>
-        </li>
-        <li>
-            <a>
-                <i class="fa fa-star" onclick="setValuu(5)"></i>
-            </a>
-        </li>
-        <input id="rating" type="hidden" asp-for="Rating" />
-    </ul>
+    <div class="rating">
+        <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+
+        <label for="star5" onclick="setValuu(5)"><i class="fa fa-star fa-lg"></i></label>
+        <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+        <label for="star4" onclick="setValuu(4)"><i class="fa fa-star fa-lg"></i></label>
+        <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+        <label for="star3" onclick="setValuu(3)"><i class="fa fa-star fa-lg"></i></label>
+        <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+        <label for="star2" onclick="setValuu(2)"><i class="fa fa-star fa-lg"></i></label>
+        <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+        <label for="star1" onclick="setValuu(1)"><i class="fa fa-star fa-lg"></i></label>
+        <div class="clear"></div>
+        <input id="rating" asp-for="Rating" type="hidden" />
+    </div>
     <div class="col-md-12">
         <div class="form-group">
             <label asp-for="UserFullName">الاسم بالكامل</label>
