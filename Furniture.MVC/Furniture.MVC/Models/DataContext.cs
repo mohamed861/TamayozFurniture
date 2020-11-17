@@ -51,6 +51,8 @@ namespace Furniture.MVC.Models
                     .HasColumnName("announceExpireDate");
 
                 entity.Property(e => e.AnnounceHeader).HasColumnName("announceHeader");
+
+                entity.Property(e => e.AnnouncePhotoPath).HasColumnName("announcePhotoPath");
             });
 
             modelBuilder.Entity<Ksacity>(entity =>
@@ -115,6 +117,8 @@ namespace Furniture.MVC.Models
             modelBuilder.Entity<Service>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.ServiceDescription).HasColumnName("serviceDescription");
 
                 entity.Property(e => e.ServiceName).HasColumnName("serviceName");
             });

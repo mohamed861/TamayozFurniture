@@ -64,7 +64,7 @@ namespace Furniture.MVC.Data
 
         public async Task<List<Announcement>> GetAnnounces()
         {
-            return await _context.Announcements.Where(a => a.AnnounceExpireDate <= DateTime.Now).ToListAsync();
+            return await _context.Announcements.Where(a => a.AnnounceExpireDate >= DateTime.Now).ToListAsync();
         }
     }
 }

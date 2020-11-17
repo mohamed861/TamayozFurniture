@@ -12,5 +12,6 @@ namespace Furniture.MVC.Models
         public DateTime? AnnounceExpireDate { get; set; }
         public string AnnounceContent { get; set; }
         public string AnnounceHeader { get; set; }
+        public string AnnouncePhotoPath { get; set; }
     }
 }
