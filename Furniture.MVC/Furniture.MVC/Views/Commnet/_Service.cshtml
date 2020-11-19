@@ -1,68 +1,71 @@
 ﻿@model RequestedServiceDto
 
 
-<form class="row profile_form"  method="post" asp-action="Index" role="form" novalidate="novalidate">
+<form class="row profile_form" method="post" asp-action="Index" role="form" novalidate="novalidate">
     <div class="tracking_box_inner d-flex justify-content-lg-around justify-content-sm-around align-items-center bg-white">
-        <h2>خدمة نقل أثاث</h2>
-        <br />
-        <div class="row tracking_form">
-            <div class="form-group">
-                <div class="input-group">
-                    <label asp-for="fromCity" class="fromCity">
-                        ...من مدينة
-                    </label>
-                    <div class="input-group-prepend">
-                        <div class="input-group-text bg-white border border-info">
-                            <i class="fas fa-map-marker-alt text-info"></i>
+        @*<h2>خدمة نقل أثاث</h2>*@
+        @*<br />*@
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <label asp-for="fromCity" class="fromCity">
+                                ...من مدينة
+                            </label>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-white border border-info">
+                                    <i class="fas fa-map-marker-alt text-info"></i>
+                                </div>
+                            </div>
+                            <select class="form-control border border-info" name="fromCity" asp-for="fromCity" id="fromCity" style="border-radius: 0;">
+                                <option value="@null">اختر مدينة</option>
+                                @foreach (var city in Model.Ksacities)
+                                {
+                                    <option class="fromCity" value="@city.Id">
+                                        @city.Name
+                                    </option>
+                                }
+                            </select>
+                            <span asp-validation-for="fromCity" class="text-danger"></span>
                         </div>
                     </div>
-                    <select class="form-control border border-info" name="fromCity" asp-for="fromCity" id="fromCity" style="border-radius: 0;">
-                        <option value="@null">اختر مدينة</option>
-                        @foreach (var city in Model.Ksacities)
-                        {
-                            <option class="fromCity" value="@city.Id">
-                                @city.Name
-                            </option>
-                        }
-                    </select>
-                    <span asp-validation-for="fromCity" class="text-danger"></span>
                 </div>
-            </div>
-        </div>
-        <!--<div class="flex justify-content-between align-items-center">  -->
+                <!--<div class="flex justify-content-between align-items-center">  -->
 
-        <div class="row tracking_form d-inline-block">
-            <div class="form-group">
-                <div class="input-group">
-                    <label asp-for="toCity" class="toCity">
-                        ...إلى مدينة
-                    </label>
-                    <div class="input-group-prepend">
-                        <div class="input-group-text bg-white border border-info">
-                            <i class="fas fa-map-marker-alt text-info"></i>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <label asp-for="toCity" class="toCity">
+                                ...إلى مدينة
+                            </label>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text bg-white border border-info">
+                                    <i class="fas fa-map-marker-alt text-info"></i>
+                                </div>
+                            </div>
+
+                            <select class="form-control border border-info" asp-for="toCity" name="toCity" id="toCity" style="border-radius: 0;">
+                                <option value="@null">اختر مدينة</option>
+                                @foreach (var city in Model.Ksacities)
+                                {
+                                    <option class="fromCity" value="@city.Id">
+                                        @city.Name
+                                    </option>
+                                }
+                            </select>
+                            <span asp-validation-for="toCity" class="text-danger"></span>
+
                         </div>
                     </div>
-
-                    <select class="form-control border border-info" asp-for="toCity" name="toCity" id="toCity" style="border-radius: 0;">
-                        <option value="@null">اختر مدينة</option>
-                        @foreach (var city in Model.Ksacities)
-                        {
-                            <option class="fromCity" value="@city.Id">
-                                @city.Name
-                            </option>
-                        }
-                    </select>
-                    <span asp-validation-for="toCity" class="text-danger"></span>
-
                 </div>
             </div>
         </div>
     </div>
-
     <div class="col-12">
         <div class="form-group">
             <label asp-for="Name">الاسم بالكامل</label>
-            <input type="text" class="form-control userinfo" asp-for="Name" id="Name"  placeholder="الاسم بالكامل" />
+            <input type="text" class="form-control userinfo" asp-for="Name" id="Name" placeholder="الاسم بالكامل" />
             <span asp-validation-for="Name" class="text-danger"></span>
 
         </div>
@@ -71,7 +74,7 @@
         <div class="form-group">
             <label asp-for="Email">البريد الالكترونى</label>
 
-            <input type="email" class="form-control userinfo" id="EMail" asp-for="Email"  placeholder="البريد الالكترونى" />
+            <input type="email" class="form-control userinfo" id="EMail" asp-for="Email" placeholder="البريد الالكترونى" />
             <span asp-validation-for="Email" class="text-danger"></span>
 
         </div>
@@ -79,7 +82,7 @@
     <div class="col-12">
         <div class="form-group">
             <label asp-for="Phone">رقم الهاتف</label>
-            <input type="text" class="form-control userinfo" id="Phone" asp-for="Phone"  placeholder="رقم الهاتف" />
+            <input type="text" class="form-control userinfo" id="Phone" asp-for="Phone" placeholder="رقم الهاتف" />
             <span asp-validation-for="Phone" class="text-danger"></span>
 
         </div>
@@ -87,14 +90,20 @@
     <div class="col-12">
         <div class="form-group">
             <label asp-for="Address">العنوان</label>
-            <input type="text" class="form-control userinfo" asp-for="Address" id="Address"  placeholder="العنوان" />
+            <input type="text" class="form-control userinfo" asp-for="Address" id="Address" placeholder="العنوان" />
             <span asp-validation-for="Address" class="text-danger"></span>
 
         </div>
     </div>
-    <div class="col-12 text-right">
-        <button type="submit" value="submit" class="btn_3">
-            تأكيد
-        </button>
+    <div class=" col-12 justify-content-center modal-footer">
+        <div class="col-6 text-right d-flex justify-content-center">
+            <button type="submit" value="submit" class="btn_3">
+                تأكيد
+            </button>
+        </div>
+        <div class="col-6 text-right d-flex justify-content-center">
+            <button type="button" class="btn_3" data-dismiss="modal">إغلاق</button>
+        </div>
     </div>
+
 </form>
