@@ -42,7 +42,6 @@ namespace Furniture.MVC.Controllers
                     UserFullName = a.UserFullName
                 }).ToList()
             };
-            homeDto.Announcements.First().Active = "active";
             return View(homeDto);
         }
 
@@ -57,6 +56,14 @@ namespace Furniture.MVC.Controllers
             return View();
         }
 
+        public IActionResult Error()
+        {
+            return View();
+        }
+        public IActionResult Thanks()
+        {
+            return View();
+        }
 
     }
 }
