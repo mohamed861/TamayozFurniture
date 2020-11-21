@@ -27,6 +27,8 @@
 
                 @foreach (var review in Model.UserComments)
                 {
+                    <div class="row">
+                        <div class="col-12">
                     <div class="review_item">
                         <div class="media">
                             <div class="d-flex">
@@ -36,13 +38,15 @@
                                 <h4>@review.UserFullName</h4>
                                 @await Html.PartialAsync("rate", review.Rating)
                             </div>
-                            <p>
+                            </div>
+                            <div>
+                            <p class="col-9">
                                 @review.CommentText
-                            </p>
+                            </p></div>
                         </div>
 
                     </div>
-
+               </div>
                 }
             </div>
         </div>
