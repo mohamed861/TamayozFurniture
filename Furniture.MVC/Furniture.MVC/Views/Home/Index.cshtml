@@ -2,7 +2,13 @@
 @{
     ViewData["Title"] = "الرئيسية";
 }
-
+@section Styles{ 
+<style>
+    .my_img_carousel {
+        height: 600px;
+    }
+</style>
+}
 
 <div style="margin-top:90px">
 
@@ -16,7 +22,7 @@
                     i++;
                     var active = i == 1 ? "active" : "";
                     <div class="carousel-item @active">
-                        <img class="d-block w-100" src="@announce.AnnouncePhotoPath" alt="First slide">
+                        <img class="d-block w-100 my_img_carousel" src="@announce.AnnouncePhotoPath" alt="First slide">
                         <div class="carousel-caption d-none d-md-block">
                             <a href="#">
                                 <h2>@announce.AnnounceHeader</h2>
@@ -24,8 +30,6 @@
                             </a>
                         </div>
                     </div>
-
-
                 }
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -48,29 +52,94 @@
         </div>
         <div class="row">
             <div class="row align-items-center latest_product_inner">
-                @foreach (var service in Model.Services)
-                {
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single_product_item">
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_product_item">
+                        <a href="Commnet/index/1">
                             <div class="flip-card">
                                 <div class="flip-card-inner">
                                     <div class="flip-card-front">
-                                        <img src="@service.ServicePhotoPath" alt="service" style="width:300px;height:300px;">
+                                        <img src="~/img/service1.jpg" alt="service" style="width:600px;height:300px;">
                                     </div>
                                     <div class="flip-card-back">
-                                        <h1>@service.ServiceName</h1>
+                                        <h1>نقل عفش</h1>
                                         <hr style="margin: 0 30px">
-                                        <p>@service.ServiceSubHeader</p>
+                                        <p>نقل عفش </p>
                                         <p>
-                                            @service.ServiceDescription
+                                            قال الشيخ محمد حشاد نقيب قراء القرآن الكريم، إن هناك عدد من المواقع قامت بالتوصل معه للسؤال هل يجوز لبهاء سلطان الانضمام إلى النقابة؟ فكان الجواب هو إذا كان تتوفر فية شروط الالتحاق بالنقابة وهى حفظ القرآن الكريم وحسن السير والسمعة والسلوك  فلا مانع مطلقا من أنضمامه للنقابة.
+
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_product_item">
+                        <a href="Commnet/index/2">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="~/img/service1.jpg" alt="service" style="width:600px;height:300px;">
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h1>فك و تركيب</h1>
+                                        <hr style="margin: 0 30px">
+                                        <p>فك و تركيب</p>
+                                        <p>
+                                            قال الشيخ محمد حشاد نقيب قراء القرآن الكريم، إن هناك عدد من المواقع قامت بالتوصل معه للسؤال هل يجوز لبهاء سلطان الانضمام إلى النقابة؟ فكان الجواب هو إذا كان تتوفر فية شروط الالتحاق بالنقابة وهى حفظ القرآن الكريم وحسن السير والسمعة والسلوك  فلا مانع مطلقا من أنضمامه للنقابة.
 
-                }
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_product_item">
+                        <a href="Commnet/index/3">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="~/img/service1.jpg" alt="service" style="width:600px;height:300px;">
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h1>تغليف</h1>
+                                        <hr style="margin: 0 30px">
+                                        <p>تغليف </p>
+                                        <p>
+                                            قال الشيخ محمد حشاد نقيب قراء القرآن الكريم، إن هناك عدد من المواقع قامت بالتوصل معه للسؤال هل يجوز لبهاء سلطان الانضمام إلى النقابة؟ فكان الجواب هو إذا كان تتوفر فية شروط الالتحاق بالنقابة وهى حفظ القرآن الكريم وحسن السير والسمعة والسلوك  فلا مانع مطلقا من أنضمامه للنقابة.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="single_product_item">
+                        <a href="Commnet/index/4">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <img src="~/img/service1.jpg" alt="service" style="width:600px;height:300px;">
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <h1>تخزين</h1>
+                                        <hr style="margin: 0 30px">
+                                        <p>تخزين</p>
+                                        <p>
+                                            قال الشيخ محمد حشاد نقيب قراء القرآن الكريم، إن هناك عدد من المواقع قامت بالتوصل معه للسؤال هل يجوز لبهاء سلطان الانضمام إلى النقابة؟ فكان الجواب هو إذا كان تتوفر فية شروط الالتحاق بالنقابة وهى حفظ القرآن الكريم وحسن السير والسمعة والسلوك  فلا مانع مطلقا من أنضمامه للنقابة.
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -104,7 +173,6 @@
                                     </h3>
                                 </div>
                             </div>
-
                         }
                     </div>
                 </div>
