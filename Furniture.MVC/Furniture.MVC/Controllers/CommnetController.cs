@@ -17,7 +17,7 @@ namespace Furniture.MVC.Controllers
         {
             _repo = repo;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
             var cities = await _repo.GetKsacities();
             var userComents = await _repo.GetComments();
@@ -45,6 +45,7 @@ namespace Furniture.MVC.Controllers
                 AvaregRate = (int)averageRate,
                 TotalRates = totalCount
             };
+            ViewBag.serviceId = id;
             return View(reviewDto);
         }
         public async Task<IActionResult> Comment(UserCommentsDto commentsDto)
