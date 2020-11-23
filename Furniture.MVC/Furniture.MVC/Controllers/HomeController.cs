@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Furniture.MVC.Data;
 using Furniture.MVC.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Furniture.MVC.Controllers
 {
@@ -15,6 +16,7 @@ namespace Furniture.MVC.Controllers
             _repo = repo;
         }
 
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             var services = await _repo.GetServices();
@@ -42,7 +44,6 @@ namespace Furniture.MVC.Controllers
                     UserFullName = a.UserFullName
                 }).ToList()
             };
-            homeDto.Announcements.First().Active = "active";
             return View(homeDto);
         }
 
@@ -57,6 +58,14 @@ namespace Furniture.MVC.Controllers
             return View();
         }
 
+        public IActionResult Error()
+        {
+            return View();
+        }
+        public IActionResult Thanks()
+        {
+            return View();
+        }
 
     }
 }

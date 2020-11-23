@@ -59,7 +59,7 @@ namespace Furniture.MVC.Controllers
             };
             await _repo.AddtComment(comment);
             await _repo.SaveChanges();
-            return Redirect("Index");
+            return RedirectToAction("thanks", "Home");
         }
         public async Task<IActionResult> Service(RequestedServiceDto serviceDto)
         {
@@ -75,7 +75,9 @@ namespace Furniture.MVC.Controllers
             };
             await _repo.AddOrder(service);
             await _repo.SaveChanges();
-            return Redirect("Index");
+            return RedirectToAction("thanks", "Home");
         }
+
+
     }
 }
