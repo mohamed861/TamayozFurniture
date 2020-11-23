@@ -21,6 +21,7 @@ namespace Furniture.MVC.Models
         public virtual DbSet<Ksacity> Ksacities { get; set; }
         public virtual DbSet<RequestService> RequestServices { get; set; }
         public virtual DbSet<Service> Services { get; set; }
+        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UsersComment> UsersComments { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -121,6 +122,13 @@ namespace Furniture.MVC.Models
                 entity.Property(e => e.ServiceDescription).HasColumnName("serviceDescription");
 
                 entity.Property(e => e.ServiceName).HasColumnName("serviceName");
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.ToTable("User");
+
+                entity.Property(e => e.Password).HasColumnName("password");
             });
 
             modelBuilder.Entity<UsersComment>(entity =>

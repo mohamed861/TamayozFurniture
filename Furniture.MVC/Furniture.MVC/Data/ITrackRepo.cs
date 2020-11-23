@@ -16,5 +16,6 @@ namespace Furniture.MVC.Data
         Task<int> GetCommentCount();
         Task<List<Announcement>> GetAnnounces();
         Task<bool> SaveChanges();
+        Task<User> Login(string userName, string password);
     }
 }

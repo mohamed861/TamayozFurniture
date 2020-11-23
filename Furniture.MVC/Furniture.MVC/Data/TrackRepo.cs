@@ -66,5 +66,17 @@ namespace Furniture.MVC.Data
         {
             return await _context.Announcements.Where(a => a.AnnounceExpireDate >= DateTime.Now).ToListAsync();
         }
+
+        public async Task<User> Login(string userName, string password)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(a => a.UserName == userName);
+            if (user != null)
+            {
+                if (user.Password == password)
+                    return user;
+                return null;
+            }
+            return null;
+        }
     }
 }
