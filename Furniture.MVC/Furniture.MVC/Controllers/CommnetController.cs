@@ -20,7 +20,7 @@ namespace Furniture.MVC.Controllers
         public async Task<IActionResult> Index(int id)
         {
             var cities = await _repo.GetKsacities();
-            var userComents = await _repo.GetComments();
+            var userComents = await _repo.GetComments(id);
             var averageRate = await _repo.GetAverageRate();
             var totalCount = await _repo.GetCommentCount();
             var reviewDto = new ReviewDto

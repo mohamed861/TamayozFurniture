@@ -5,6 +5,7 @@ namespace Furniture.MVC.DTO
 {
     public class UserCommentsDto
     {
+        [Required(ErrorMessage = "يجب ادخال تعليق")]
         public string CommentText { get; set; }
         public DateTime? CommentDate { get; set; }
         [EmailAddress(ErrorMessage = "الايميل غير صحيح")]

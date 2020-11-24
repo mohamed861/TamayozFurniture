@@ -2837,6 +2837,10 @@ ul {
 
 /* line 54, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_product_list.scss */
 .single_product_item {
+    height:350px;
+    overflow:hidden;
+    padding:10px;
+    /*background-color:red;*/
   border-radius: 5px;
   margin-bottom: 20px;
   -webkit-transition: 0.5s;
@@ -7888,22 +7892,20 @@ h6 {
 
 /*  flip card style  */
 .flip-card {
-  margin-top: 70px;
-  margin-bottom: 70px;
-  background-color: transparent;
-  width: 300px;
-  height: 220px;
+  width: 100%;
+  height: 300px;
   perspective: 1000px; 
 }
 
 
 .flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border: 5px solid white;
 }
 
 
@@ -7915,7 +7917,7 @@ h6 {
 .flip-card-front, .flip-card-back {
   position: absolute;
   width: 100%;
-  height: 135%;
+  height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -8063,11 +8065,52 @@ textarea{
   word-break: break-all;
 }
 
+/*//////////////////////////////comments/////////////////////////////////////////////////*/
+.single_product_item{
+    background-color:white;
+}
+.single_product_text {
+    height: 122px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+    .single_product_text h4 {
+        height: 20px;
+        overflow-y: hidden;
+       margin-bottom:0px;
+        text-overflow: ellipsis;
+    }
+    .single_product_text h3 {
+        height: 102px;
+        /*text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;*/
+    }
+.best_seller .single_product_item .single_product_text {
+    padding: 0px 0 0;
+}
+.best_seller .single_product_item:hover .single_product_text {
+    padding: 0px 0 0;
+}
 
+.single_product_item img{
+    height:150px;
+}
 
-
-
-
-
-
-
+.best_product_slider .owl-item {
+    transition: transform .2s;
+}
+    .best_product_slider .owl-item:hover {
+        transform: scale(1.05);
+    }
+/**********phone*********/
+.my_phone{
+    font-size:18px;
+    color:forestgreen;
+}
+    .my_phone i {
+        font-size: 25px;
+    }
+.phone_circle {
+   direction:rtl;
+}

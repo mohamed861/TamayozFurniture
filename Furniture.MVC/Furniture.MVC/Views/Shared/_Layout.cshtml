@@ -48,7 +48,10 @@
             padding-right: 0px;
             padding-left: 0px;
         }
-       
+       body{
+           background-color:whitesmoke;
+       }
+      
     </style>
     @RenderSection("Styles", false)
 </head>
@@ -92,15 +95,18 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="hearer_icon d-flex">
+                        <div class="hearer_icon d-flex my_phone">
                             @*<a id="search_1" href="javascript:void(0)"><i class="ti-search"></i></a>*@
-                            <a href=""><i class="fa fa-phone"></i></a><span>&nbsp;&nbsp; 01022334455</span>
+                            <span> 01022334455</span>
+                            <div class="phone_circle ml-2">
+                                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+                            </div>
                         </div>
                     </nav>
                 </div>
             </div>
         </div>
-        <div class="search_input" id="search_input_box">
+        @*<div class="search_input" id="search_input_box">
             <div class="container ">
                 <form class="d-flex justify-content-between search-inner">
                     <input type="text" class="form-control" id="search_input" placeholder="Search Here">
@@ -108,7 +114,7 @@
                     <span class="ti-close" id="close_search" title="Close Search"></span>
                 </form>
             </div>
-        </div>
+        </div>*@
     </header>
     <div class="container-fluid">
         <main role="main" class="pb-3">

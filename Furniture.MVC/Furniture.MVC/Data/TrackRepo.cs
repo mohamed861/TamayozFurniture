@@ -39,9 +39,9 @@ namespace Furniture.MVC.Data
             return await _context.Services.ToListAsync();
         }
 
-        public async Task<List<UsersComment>> GetComments()
+        public async Task<List<UsersComment>> GetComments(int id = 0)
         {
-            var comments = await _context.UsersComments.ToListAsync();
+            var comments = await _context.UsersComments.Where(x=>id>0?x.RequestServiceId==id:true).ToListAsync();
             return comments;
         }
 

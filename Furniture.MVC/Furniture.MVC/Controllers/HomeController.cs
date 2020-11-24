@@ -41,7 +41,9 @@ namespace Furniture.MVC.Controllers
                 UserComments = userComments.Select(a => new UserCommentsDto
                 {
                     CommentText = a.CommentText,
-                    UserFullName = a.UserFullName
+                    UserFullName = a.UserFullName,
+                    Rating=a.Rating
+
                 }).ToList()
             };
             return View(homeDto);

@@ -7,6 +7,7 @@
     .my_img_carousel {
         height: 600px;
     }
+   
 </style>
 }
 
@@ -50,15 +51,15 @@
             <h2 class="col-12"> هنا يتم الأعلان عن بعض <span> المنتجات </span>و الأسعار</h2>
             <div class="underlineDiv"></div>
         </div>
-        <div class="row">
-            <div class="row align-items-center latest_product_inner">
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_product_item">
+        <div class="row mt-5">
+            @*<div class="row align-items-center latest_product_inner">*@
+                <div class="col-lg-6 col-md-6 mb-md-5 mb-sm-2">
+                    <div class="">
                         <a href="Commnet/index/1">
                             <div class="flip-card">
                                 <div class="flip-card-inner">
                                     <div class="flip-card-front">
-                                        <img src="~/img/service1.jpg" alt="service" style="width:600px;height:300px;">
+                                        <img src="~/img/service1.jpg" alt="service" style="width:100%;height:100%;">
                                     </div>
                                     <div class="flip-card-back">
                                         <h1>نقل عفش</h1>
@@ -74,13 +75,13 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_product_item">
+                <div class="col-lg-6 col-md-6 mb-md-5 mb-sm-2">
+                    <div class="">
                         <a href="Commnet/index/2">
                             <div class="flip-card">
                                 <div class="flip-card-inner">
                                     <div class="flip-card-front">
-                                        <img src="~/img/service1.jpg" alt="service" style="width:600px;height:300px;">
+                                        <img src="~/img/service1.jpg" alt="service" style="width:100%;height:100%;">
                                     </div>
                                     <div class="flip-card-back">
                                         <h1>فك و تركيب</h1>
@@ -96,13 +97,13 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_product_item">
+                <div class="col-lg-6 col-md-6 mb-md-5 mb-sm-2">
+                    <div class="">
                         <a href="Commnet/index/3">
                             <div class="flip-card">
                                 <div class="flip-card-inner">
                                     <div class="flip-card-front">
-                                        <img src="~/img/service1.jpg" alt="service" style="width:600px;height:300px;">
+                                        <img src="~/img/service1.jpg" alt="service" style="width:100%;height:100%;">
                                     </div>
                                     <div class="flip-card-back">
                                         <h1>تغليف</h1>
@@ -118,13 +119,13 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <div class="single_product_item">
+                <div class="col-lg-6 col-md-6 mb-md-5 mb-sm-2">
+                    <div class="">
                         <a href="Commnet/index/4">
                             <div class="flip-card">
                                 <div class="flip-card-inner">
                                     <div class="flip-card-front">
-                                        <img src="~/img/service1.jpg" alt="service" style="width:600px;height:300px;">
+                                        <img src="~/img/service1.jpg" alt="service" style="width:100%;height:100%;">
                                     </div>
                                     <div class="flip-card-back">
                                         <h1>تخزين</h1>
@@ -141,10 +142,10 @@
                     </div>
                 </div>
 
-            </div>
+            @*</div>*@
         </div>
     </section>
-    <hr class="container" style="margin : 50px ; background-color:#71e2e2">
+    <hr class="container my-5" style="background-color:#71e2e2">
 
 
 
@@ -163,17 +164,38 @@
                 <div class="col-lg-12">
                     <div class="best_product_slider owl-carousel">
                         @foreach (var comment in Model.UserComments)
+                            if (comment.Rating != null)
+                            {
+
+                            
                         {
                             <div class="single_product_item text-center">
                                 <img src="~/img/client.png" alt="">
+                                <div>
+                                    <ul class="list my-3">
+                                        <li>
+                                            <a>
+                                                @for (int i = 0; i < comment.Rating; i++)
+                                                {
+                                                    <i class="fa fa-star fa-lg" style="color: yellow;"></i>
+                                                }
+                                                @for (int i = 0; i < 5-comment.Rating; i++)
+                                                {
+                                                <i class="fa fa-star fa-lg" style="color: black;"></i>
+                                                }                                               
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                                 <div class="single_product_text">
                                     <h4>@comment.UserFullName</h4>
-                                    <h3>
+                                    <h3 class="">
                                         @comment.CommentText
                                     </h3>
                                 </div>
                             </div>
-                        }
+                                }
+                            }
                     </div>
                 </div>
             </div>
