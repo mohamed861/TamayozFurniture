@@ -6,10 +6,9 @@ namespace Furniture.MVC.DTO
     public class RequestedServiceDto
     {
         public int Id { get; set; }
-        [Required(ErrorMessage = "يجب ادخال المدينة ")]
 
-        public int? fromCity { get; set; }
         [Required(ErrorMessage = "يجب ادخال المدينة ")]
+        public int? fromCity { get; set; }
         public int? toCity { get; set; }
 
         public List<cityDto> Ksacities { get; set; }
@@ -18,6 +17,7 @@ namespace Furniture.MVC.DTO
         [Required(ErrorMessage = "يجب ادخال الاسم")]
         public string Name { get; set; }
 
+        public int ServiceId { get; set; }
 
         [Required(ErrorMessage = "يجب ادخال العنوان")]
         public string Address { get; set; }

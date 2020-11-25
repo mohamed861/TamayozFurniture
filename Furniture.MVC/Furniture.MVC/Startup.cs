@@ -63,6 +63,11 @@ namespace Furniture.MVC
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    "Error",
+                    "{*.}",
+     new { controller = "Home", action = "Index" }
+);
             });
         }
     }

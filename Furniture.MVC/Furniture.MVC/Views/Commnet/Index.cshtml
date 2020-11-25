@@ -8,8 +8,9 @@
         .modal-backdrop.show {
             opacity: .2;
         }
-        .fade:not(.show){
-            opacity:1;
+
+        .fade:not(.show) {
+            opacity: 1;
         }
     </style>
 }
@@ -40,7 +41,6 @@
 <div class="col-5" style="margin:auto">
     <img src="~/img/feature/feature_4.png" alt="">
 </div>
-<h1 id="serviceId" data-servID="@ViewBag.serviceId" style="display:none;">test @ViewBag.serviceId</h1>
 <section class="product_description_area" id="bodyPage">
     <div class="container">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -278,15 +278,15 @@
                         </div>
                     </div>
                 </div>
-                </div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <div class="table-responsive" style="overflow-x: hidden;">
-                        @await Html.PartialAsync("_Service", Model.ServiceDto);
-                    </div>
-                </div>
-                @await Html.PartialAsync("_review", Model)
             </div>
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="table-responsive" style="overflow-x: hidden;">
+                    @await Html.PartialAsync("_Service", Model.ServiceDto);
+                </div>
+            </div>
+            @await Html.PartialAsync("_review", Model)
         </div>
+    </div>
 </section>
 
 @* *************************** *@
@@ -316,36 +316,36 @@
 </div>
 @section Scripts{
 
- 
+
     <script>
         console.log("service id")
         console.log($('#serviceId').attr("data-servID"))
 
-            var desc = document.querySelector('#description');
-            desc.addEventListener ('click', function () {
-                console.log("from event")
+        var desc = document.querySelector('#description');
+        desc.addEventListener('click', function () {
+            console.log("from event")
 
-                if ($('#serviceId').attr("data-servID") == 1) {
-                    $('#homeTransfer').show();
-                    $('#homeEncapsulation').hide();
-                    $('#homeAssemble_Reassemble').hide();
-                    $('#homeStoring').hide();
-                } else if ($('#serviceId').attr("data-servID") == 2) {
-                    $('#homeAssemble_Reassemble').show();
-                    $('#homeTransfer').hide();
-                    $('#homeEncapsulation').hide();
-                    $('#homeStoring').hide();
-                } else if ($('#serviceId').attr("data-servID") == 3) {
-                    $('#homeEncapsulation').show();
-                    $('#homeTransfer').hide();
-                    $('#homeAssemble_Reassemble').hide();
-                    $('#homeStoring').hide();
-                } else if ($('#serviceId').attr("data-servID") == 4) {
-                    $('#homeStoring').show();
-                    $('#homeTransfer').hide();
-                    $('#homeEncapsulation').hide();
-                    $('#homeAssemble_Reassemble').hide();
-                }
-            })
+            if ($('#serviceId').attr("data-servID") == 1) {
+                $('#homeTransfer').show();
+                $('#homeEncapsulation').hide();
+                $('#homeAssemble_Reassemble').hide();
+                $('#homeStoring').hide();
+            } else if ($('#serviceId').attr("data-servID") == 2) {
+                $('#homeAssemble_Reassemble').show();
+                $('#homeTransfer').hide();
+                $('#homeEncapsulation').hide();
+                $('#homeStoring').hide();
+            } else if ($('#serviceId').attr("data-servID") == 3) {
+                $('#homeEncapsulation').show();
+                $('#homeTransfer').hide();
+                $('#homeAssemble_Reassemble').hide();
+                $('#homeStoring').hide();
+            } else if ($('#serviceId').attr("data-servID") == 4) {
+                $('#homeStoring').show();
+                $('#homeTransfer').hide();
+                $('#homeEncapsulation').hide();
+                $('#homeAssemble_Reassemble').hide();
+            }
+        })
     </script>
 }

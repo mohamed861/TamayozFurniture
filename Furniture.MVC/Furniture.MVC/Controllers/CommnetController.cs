@@ -27,6 +27,7 @@ namespace Furniture.MVC.Controllers
             {
                 ServiceDto = new RequestedServiceDto
                 {
+                    ServiceId = id,
                     Ksacities = cities.Select(a => new cityDto
                     {
                         Id = a.Id,
@@ -43,10 +44,13 @@ namespace Furniture.MVC.Controllers
                     RequestServiceId = a.RequestServiceId
                 }).ToList(),
                 AvaregRate = (int)averageRate,
-                TotalRates = totalCount
+                TotalRates = totalCount,
+                CommentsDto = new UserCommentsDto
+                {
+                    RequestServiceId = id
+                }
             };
             ViewBag.serviceId = id;
-            TempData["ServiceId"] = $"{id}";
             return View(reviewDto);
         }
         public async Task<IActionResult> Comment(UserCommentsDto commentsDto)
@@ -58,6 +62,7 @@ namespace Furniture.MVC.Controllers
                 Rating = commentsDto.Rating,
                 UserEmail = commentsDto.UserEmail,
                 UserFullName = commentsDto.UserFullName,
+                RequestServiceId = commentsDto.RequestServiceId
             };
             await _repo.AddtComment(comment);
             await _repo.SaveChanges();
@@ -74,6 +79,7 @@ namespace Furniture.MVC.Controllers
                 FullName = serviceDto.Name,
                 Phone = serviceDto.Phone,
                 RequestDate = DateTime.Now,
+                ServiceId = serviceDto.ServiceId
             };
             await _repo.AddOrder(service);
             await _repo.SaveChanges();
