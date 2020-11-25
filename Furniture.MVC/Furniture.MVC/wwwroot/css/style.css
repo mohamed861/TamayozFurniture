@@ -2351,7 +2351,7 @@ ul {
   /* line 245, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_menu.scss */
   .navbar-brand img {
     max-width: 100px;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
     position: absolute;
     left: 0;
     right: 0;
@@ -7956,7 +7956,7 @@ h6 {
   z-index: 1;
   text-align: right;
   width: 100%;
-  height: 75vh !important;
+  height: 425px !important;
   background: #eee;
   /*background: #551155;*/
   margin-bottom: 10%;
@@ -7986,6 +7986,8 @@ h6 {
 }
 
 .breadcrumb img {
+  width: 50%;
+  border-radius: 50%;
   opacity: 0.6;
 }
 
@@ -8036,17 +8038,38 @@ h6 {
   .tracking_box_area {
     background-image: none;
   }
+
+  .custom-shape-divider-bottom-1604910460 svg {
+    height: 0;
+  }
+
+  .breadcrumb img {
+    width: 80%;
+    margin-top: 10%;
+  }
+
+  .hearer_icon {
+    margin-left: 15%;
+  }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .tracking_box_area {
     background-image: none;
   }
+
+  .hearer_icon {
+    margin-left: 15%;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .tracking_box_area {
     background-image: none;
+  }
+
+  .hearer_icon {
+    margin-left: 15%;
   }
 }
 
@@ -8125,6 +8148,15 @@ textarea{
     left: -3rem;
 }
 
+<<<<<<< HEAD
 .owl-next {
     right: -1.5rem;
 }
+=======
+
+
+
+
+
+
+>>>>>>> 3584f3735ea98cae8fb9e620798ef9f3990f4837
