@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Furniture.MVC.Data;
 using Furniture.MVC.DTO;
 using Microsoft.AspNetCore.Authorization;
+using Furniture.MVC.HelperClasses;
 
 namespace Furniture.MVC.Controllers
 {
@@ -60,12 +61,15 @@ namespace Furniture.MVC.Controllers
             return View();
         }
 
+        [NoDirectAccessAttribute]
         public IActionResult Error()
         {
             return View();
         }
+        [NoDirectAccessAttribute]
         public IActionResult Thanks()
         {
+            ViewBag.serviceId = TempData["ServiceId"];
             return View();
         }
 

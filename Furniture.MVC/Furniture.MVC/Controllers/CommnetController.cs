@@ -46,6 +46,7 @@ namespace Furniture.MVC.Controllers
                 TotalRates = totalCount
             };
             ViewBag.serviceId = id;
+            TempData["ServiceId"] = $"{id}";
             return View(reviewDto);
         }
         public async Task<IActionResult> Comment(UserCommentsDto commentsDto)
