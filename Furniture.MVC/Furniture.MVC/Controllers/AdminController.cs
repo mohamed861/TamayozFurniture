@@ -1,6 +1,7 @@
 ﻿using Furniture.MVC.Data;
 using Furniture.MVC.DTO;
 using Furniture.MVC.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Furniture.MVC.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly ITrackRepo _repo;
@@ -19,7 +21,6 @@ namespace Furniture.MVC.Controllers
         {
             _repo = repo;
         }
-
         public async Task<IActionResult> Index()
         {
             var services = await _repo.GetServiceReport();
