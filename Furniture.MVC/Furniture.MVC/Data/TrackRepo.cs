@@ -1,4 +1,5 @@
-﻿using Furniture.MVC.Models;
+﻿using Furniture.MVC.DTO;
+using Furniture.MVC.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -41,7 +42,7 @@ namespace Furniture.MVC.Data
 
         public async Task<List<UsersComment>> GetComments(int id = 0)
         {
-            var comments = await _context.UsersComments.Where(x=>id>0?x.RequestServiceId==id:true).ToListAsync();
+            var comments = await _context.UsersComments.Where(x => id > 0 ? x.RequestServiceId == id : true).ToListAsync();
             return comments;
         }
 
@@ -77,6 +78,30 @@ namespace Furniture.MVC.Data
                 return null;
             }
             return null;
+        }
+
+
+
+        public async Task<Announcement> AddAnnounce(Announcement announce)
+        {
+            await _context.Announcements.AddAsync(announce);
+            return announce;
+        }
+
+        public async Task<List<ServiceReportDto>> GetServiceReport()
+        {
+            return await _context.RequestServices.Select(a => new ServiceReportDto
+            {
+                FromCity = a.CityFrom.Name,
+                ToCity = a.CityTo.Name,
+                ServiceName = a.Service.ServiceName,
+                UserEmail = a.Email,
+                UserName = a.FullName,
+                UserPhone = a.Phone,
+                Address = a.Address,
+                Id = a.Id
+
+            }).ToListAsync();
         }
     }
 }

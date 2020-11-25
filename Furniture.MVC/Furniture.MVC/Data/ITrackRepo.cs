@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Furniture.MVC.DTO;
 using Furniture.MVC.Models;
 namespace Furniture.MVC.Data
 {
@@ -17,5 +18,8 @@ namespace Furniture.MVC.Data
         Task<List<Announcement>> GetAnnounces();
         Task<bool> SaveChanges();
         Task<User> Login(string userName, string password);
+        Task<Announcement> AddAnnounce(Announcement announce);
+
+        Task<List<ServiceReportDto>> GetServiceReport();
     }
 }

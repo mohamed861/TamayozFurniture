@@ -17,7 +17,6 @@ namespace Furniture.MVC.Controllers
             _repo = repo;
         }
 
-        [Authorize]
         public async Task<IActionResult> Index()
         {
             var services = await _repo.GetServices();
@@ -43,7 +42,7 @@ namespace Furniture.MVC.Controllers
                 {
                     CommentText = a.CommentText,
                     UserFullName = a.UserFullName,
-                    Rating=a.Rating
+                    Rating = a.Rating
 
                 }).ToList()
             };

@@ -29,30 +29,31 @@
                 {
                     <div class="row">
                         <div class="col-12">
-                    <div class="review_item">
-                        <div class="media">
-                            <div class="d-flex">
-                                <img src="~/img/product/single-product/review-1.png" alt="" />
+                            <div class="review_item">
+                                <div class="media">
+                                    <div class="d-flex">
+                                        <img src="~/img/product/single-product/review-1.png" alt="" />
+                                    </div>
+                                    <div class="media-body">
+                                        <h4>@review.UserFullName</h4>
+                                        @await Html.PartialAsync("rate", review.Rating)
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="col-9 break-word">
+                                        @review.CommentText
+                                    </p>
+                                </div>
                             </div>
-                            <div class="media-body">
-                                <h4>@review.UserFullName</h4>
-                                @await Html.PartialAsync("rate", review.Rating)
-                            </div>
-                            </div>
-                            <div>
-                            <p class="col-9 break-word">
-                                @review.CommentText
-                            </p></div>
-                        </div>
 
+                        </div>
                     </div>
-               </div>
                 }
             </div>
         </div>
         <div class="col-lg-6">
             <div class="review_box">
-                @await Html.PartialAsync("comment_form", new UserCommentsDto())
+                @await Html.PartialAsync("comment_form", Model.CommentsDto);
             </div>
         </div>
     </div>

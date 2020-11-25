@@ -1,42 +1,41 @@
 ﻿@model RequestedServiceDto
 
-@section Styles{ 
-<style>
-    .from_to{
-        
-    }
-</style>
+@section Styles{
+    <style>
+        .from_to {
+        }
+    </style>
 }
 <form class="row profile_form" method="post" asp-action="Index" role="form" novalidate="novalidate">
-    @if (ViewBag.serviceId == 1)
-    {
 
-        <div class="col-12">
-            <div class="form-row">
-                <div class="form-group col-md-6 d-flex justify-content-center">
-                    <div class="mr-md-4  d-flex align-items-center">
-                        <label asp-for="fromCity" class="">
-                            مـــن
-                        </label>
-                    </div>
-                    <div class="row">
-                        <div class="col-1 input-group-prepend mr-3  ml-sm-3 ml-md-0">
-                            <div class="input-group-text bg-white">
-                                <i class="fas fa-map-marker-alt text-info"></i>
-                            </div>
-                        </div>
-                        <select class="form-control col-8" name="fromCity" asp-for="fromCity" id="fromCity" style="border-radius: 0;">
-                            <option value="@null">اختر مدينة</option>
-                            @foreach (var city in Model.Ksacities)
-                            {
-                                <option class="fromCity" value="@city.Id">
-                                    @city.Name
-                                </option>
-                            }
-                        </select>
-                        <span asp-validation-for="fromCity" class="text-danger"></span>
-                    </div>
+
+    <div class="col-12">
+        <div class="form-row">
+            <div class="form-group col-md-6 d-flex justify-content-center" style="margin:auto">
+                <div class="mr-md-4  d-flex align-items-center">
+                    <label asp-for="fromCity" class="">
+                        مـــن
+                    </label>
                 </div>
+                <div class="row">
+                    <div class="col-1 input-group-prepend mr-3 ml-sm-3">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-map-marker-alt text-info"></i>
+                        </div>
+                    </div> <select class="form-control col-8" name="fromCity" asp-for="fromCity" id="fromCity" style="border-radius: 0;">
+                        <option value="@null">اختر مدينة</option>
+                        @foreach (var city in Model.Ksacities)
+                        {
+                            <option class="fromCity" value="@city.Id">
+                                @city.Name
+                            </option>
+                        }
+                    </select>
+                    <span asp-validation-for="fromCity" class="text-danger"></span>
+                </div>
+            </div>
+            @if (Model.ServiceId == 1)
+            {
                 <div class="form-group col-md-6 d-flex justify-content-center">
                     <div class="mr-md-4 d-flex align-items-center">
                         <label asp-for="toCity" class="">
@@ -63,38 +62,39 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            }
         </div>
-    }
-    else
-    {
+    </div>
+
+    @*else
+        {
         <div class="col-12">
-                <div class="form-group col-md-6 d-flex justify-content-center">
-                    <div class="mr-4 d-flex align-items-center from_to">
-                        <label asp-for="fromCity" class="fromCity">
-                            اختـــر مكان الخدمة
-                        </label>
-                    </div>
-                    <div class="row">
-                        <div class="col-1 input-group-prepend mr-3">
-                            <div class="input-group-text bg-white">
-                                <i class="fas fa-map-marker-alt text-info"></i>
-                            </div>
+            <div class="form-group col-md-6 d-flex justify-content-center">
+                <div class="mr-4 d-flex align-items-center from_to">
+                    <label asp-for="fromCity" class="fromCity">
+                        اختـــر مكان الخدمة
+                    </label>
+                </div>
+                <div class="row">
+                    <div class="col-1 input-group-prepend mr-3">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-map-marker-alt text-info"></i>
                         </div>
-                        <select class="form-control col-8" name="fromCity" asp-for="fromCity" id="fromCity" style="border-radius: 0;">
-                            <option value="@null">اختر مكان</option>
-                            @foreach (var city in Model.Ksacities)
-                            {
-                                <option class="fromCity" value="@city.Id">
-                                    @city.Name
-                                </option>
-                            }
-                        </select>
-                        <span asp-validation-for="fromCity" class="text-danger"></span>
                     </div>
+                    <select class="form-control col-8" name="fromCity" asp-for="fromCity" id="fromCity" style="border-radius: 0;">
+                        <option value="@null">اختر مكان</option>
+                        @foreach (var city in Model.Ksacities)
+                        {
+                            <option class="fromCity" value="@city.Id">
+                                @city.Name
+                            </option>
+                        }
+                    </select>
+                    <span asp-validation-for="fromCity" class="text-danger"></span>
                 </div>
             </div>
-    }
+        </div>
+        }*@
     <div class="col-12">
         <div class="form-group">
             <label asp-for="Name">الاسم بالكامل</label>
