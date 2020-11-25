@@ -8056,6 +8056,10 @@ h6 {
     background-image: none;
   }
 
+  .custom-shape-divider-bottom-1604910460 svg {
+    height: 0;
+  }
+
   .hearer_icon {
     margin-left: 15%;
   }
@@ -8066,6 +8070,10 @@ h6 {
     background-image: none;
   }
 
+  .custom-shape-divider-bottom-1604910460 svg {
+    height: 0;
+  }
+
   .hearer_icon {
     margin-left: 15%;
   }
@@ -8074,6 +8082,10 @@ h6 {
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   .tracking_box_area {
     background-image: none;
+  }
+
+  .custom-shape-divider-bottom-1604910460 svg {
+    height: 0;
   }
 }
 
