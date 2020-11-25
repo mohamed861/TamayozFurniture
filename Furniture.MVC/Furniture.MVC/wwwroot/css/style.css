@@ -1,4 +1,4 @@
-/*Color Variables*/
+﻿/*Color Variables*/
 /**************** extend css start ****************/
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap");
 /* line 2, ../../01 cl html template/03_jun 2019/188_Aranoz shop_html/sass/_extends.scss */
@@ -7844,7 +7844,7 @@ h6 {
 /* clint opinion  */
 .section_tittle
 {
-    float: right;
+    float: left;
 }
 .section_tittle h2
 {
@@ -8113,4 +8113,18 @@ textarea{
     }
 .phone_circle {
    direction:rtl;
+}
+
+/* to adjust السابق|التالى*/
+.owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.owl-prev {
+    left: -3rem;
+}
+
+.owl-next {
+    right: -1.5rem;
 }
