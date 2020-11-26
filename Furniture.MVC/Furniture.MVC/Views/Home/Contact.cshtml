@@ -1,7 +1,24 @@
 ﻿@{
     ViewData["Title"] = "تواصل معنا";
 }
-<!-- breadcrumb start-->
+ <style>
+     .btn-link:hover{
+         text-decoration: none;
+     }
+    
+     .btn{
+    font-weight: bold;
+    color: black;
+    font-size:x-large;
+    font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
+     }
+     .fontShow{
+     font-family: 'Courier New', Courier, monospace;
+     font-size: medium;
+     font-weight:700;
+     }
+ </style>
+
 <section class="breadcrumb">
     <div class="custom-shape-divider-bottom-1604910460">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -13,124 +30,379 @@
         <img class="image" src="~/img/7628.jpg" style="width: 50%; border-radius: 50%;">
         <div>
             <h2 class="mb-5"><span class="text-success" style="font-size: larger;">التميز</span> لنقل الأثاث في نفس اليوم</h2>
-            <h5 class="mb-3 pr-2">
+            <h4 class="mb-3 pr-2">
                 استخدم موقع أو تطبيق <span class="text-success" style="font-size: larger;">التميز</span> لنقل أثاثك بسهولة وأمان
-            </h5>
+            </h4>
             <!--<h6>لاختيار المدينة التي تريد نقل أثاثك اليها <a href="#">اضغط هنا</a></h6>-->
             <div><a class="btn btn-success btn-block btn-lg" role="button" asp-controller="Home" asp-action="track">احجز الآن</a></div>
         </div>
     </div>
 </section>
-<!-- breadcrumb start-->
-<!-- ================ contact section start ================= -->
-<section class="contact-section padding_top">
-    <div class="container">
-        <div class="d-none d-sm-block mb-5 pb-4">
-            <div id="map" style="height: 480px;"></div>
-            <script>
-                function initMap() {
-                    var uluru = {
-                        lat: -25.363,
-                        lng: 131.044
-                    };
-                    var grayStyles = [{
-                        featureType: "all",
-                        stylers: [{
-                            saturation: -90
-                        },
-                        {
-                            lightness: 50
-                        }
-                        ]
-                    },
-                    {
-                        elementType: 'labels.text.fill',
-                        stylers: [{
-                            color: '#ccdee9'
-                        }]
-                    }
-                    ];
-                    var map = new google.maps.Map(document.getElementById('map'), {
-                        center: {
-                            lat: -31.197,
-                            lng: 150.744
-                        },
-                        zoom: 9,
-                        styles: grayStyles,
-                        scrollwheel: false
-                    });
-                }
-            </script>
-            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&callback=initMap">
-            </script>
-
-        </div>
-
-
-        <div class="row">
-            <div class="col-12">
-                <h2 class="contact-title">Get in Touch</h2>
-            </div>
-            <div class="col-lg-8">
-                <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm"
-                      novalidate="novalidate">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="form-group">
-
-                                <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9"
-                                          onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'"
-                                          placeholder='Enter Message'></textarea>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''"
-                                       onblur="this.placeholder = 'Enter your name'" placeholder='Enter your name'>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input class="form-control" name="email" id="email" type="email" onfocus="this.placeholder = ''"
-                                       onblur="this.placeholder = 'Enter email address'" placeholder='Enter email address'>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="form-group">
-                                <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''"
-                                       onblur="this.placeholder = 'Enter Subject'" placeholder='Enter Subject'>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group mt-3">
-                        <a href="#" class="btn_3 button-contactForm">Send Message</a>
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-4">
-                <div class="media contact-info">
-                    <span class="contact-info__icon"><i class="ti-home"></i></span>
-                    <div class="media-body">
-                        <h3>Buttonwood, California.</h3>
-                        <p>Rosemead, CA 91770</p>
-                    </div>
-                </div>
-                <div class="media contact-info">
-                    <span class="contact-info__icon"><i class="ti-tablet"></i></span>
-                    <div class="media-body">
-                        <h3>00 (440) 9865 562</h3>
-                        <p>Mon to Fri 9am to 6pm</p>
-                    </div>
-                </div>
-                <div class="media contact-info">
-                    <span class="contact-info__icon"><i class="ti-email"></i></span>
-                    <div class="media-body">
-                        <h3>support@colorlib.com</h3>
-                        <p>Send us your query anytime!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div id="accordion" style="margin-top: 20px;">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button  class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+    شركة التميز
+        </button>
+      </h2>
     </div>
-</section>
-<!-- ================ contact section end ================= -->
+
+    <div id="collapseOne" class="collapse show fontShow" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+شركات شحن العفش بالرياض كثيرة إلا أن منها شركة قد حظت بفضل الله بانطباع ممتاز من جميع عملائها عند التعامل معها،
+
+وهي شركة التميز والتي يمكنها شحن أثاثك إلى الأردن أو أي دولة أخرى من دول الخليج،
+
+مع الضمان الكامل والتام بوصول جميع قطع الأثاث بدون أي فقد      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+التطورات التي طرأت على عمليات شحن الأثاث        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse fontShow" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+فلم تعد عملية نقل الأثاث والعفش كما كانت عليه في السابق،
+
+حيث كانت تقتصر على نجار وكهربائي يقومون بفك قطع العفش والأثاث والنجف والتكييفات ويتولى العمال إخراجها،
+
+باستخدام الأوناش القديمة وتحميلها في سيارات نقل تقوم بحملها إلى المكان الجديد، ويعاد تركيب ورص القطع مرة أخرى.
+
+وفي الغالب كانت هناك خسائر عديدة تقع لقطع الأثاث والعفش خلال مراحل الفك والتركيب والنقل،
+
+تتراوح ما بين الخدوش والصدمات، وفي بعض الأحيان تعرض القطع الرخامية وألواح الزجاج للكسر.
+
+أما اليوم فقد فرض الواقع الجديد نفسه على الجميع، فصاحب المنزل لم يعد أمامه بديلًا سوى الاستعانة بشركات نقل عفش وأثاث متخصصة،
+
+كما أصبحت شركة نقل الأثاث بالرياض مجبرة على استخدام أحدث الوسائل للنقل والتغليف للمحافظة على مقتنيات العملاء،
+
+التي ترتفع أسعارها يومًا بعد الآخر من ناحية، وتحقيق التفوق والريادة في سوق نقل العفش والأثاث من ناحية أخرى.
+
+ويمكن القول بأن أي شركات شحن اثاث بالرياض إن لم تطور من نفسها،
+
+فإنها لن تستطيع الصمود في سوق شحن الأثاث الذي أصبح يتمتع بديناميكية لا تتوقف.      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+         شركات شحن اثاث داخل السعودية الرياض
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse fontShow" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+وتتعدد شركات نقل العفش والأثاث داخل المملكة العربية السعودية وبالرياض خاصة وتختلف مسمياتها،
+
+إلا أن شركة شحن عفش بالرياض التميز تُعتبر من الشركات العريقة،
+
+والتي قامت على مدار عدة سنوات ببناء سمعة طيبة في سوق نقل وتغليف العفش بالرياض وبالمملكة ككل.
+
+وتقدم شركةالتميز خدماتها التي جعلتها من أرقى شركات شحن العفش بالرياض لقاعدة كبيرة من العملاء،
+
+بأحدث ما توصلت إليه تكنولوجيا وأساليب نقل العفش والأثاث المطابقة للمواصفات القياسية العالمية.
+
+حيث تلتزم التميز بتوفير أعلى مستويات الأمان خلال فك ونقل قطع الأثاث والعفش سواء المنزلي أو الفندقي أو مكاتب الشركات.
+
+وتنشر خدمات شركةالتميز لنقل العفش بأغلب مدن المملكة بدءًا من العاصمة الرياض مروراً بالخرج وحوطة بني تميم والدلم،
+
+وغيرها من المناطق والمدن المحيطة بالرياض، متفوقة بذلك على جميع شركات نقل وتغليف الأثاث الأخرى والمحدودة في خدماتها.
+
+وعلى الرغم من اختلاف بعض مناطق المملكة عن الأخري،
+
+فكما هو معروف توجد مناطق تتميز بطبيعتها السكنية ومناطق تكثر فيها الشركات التجارية،
+
+إلا أن أفضل شركة شحن اثاث داخل المملكة السعوديةالتميز تسعى دائماً إلى إحداث التوازن،
+
+عن طريق التواجد والانتشار في كل أحياء المحافظات السعودية بأسطولها الحديث والضخم،
+
+والذي يخضع لإشراف إدارة قوية تضم خيرة خبراء شحن الأثاث بالسعودية.      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h2 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+أفضل شركات شحن العفش بالرياض
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseFour" class="collapse fontShow" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+وتشتهر شركةالتميز بسجل أعمال حافل في خدمات شحن عفش من الرياض الى جدة وبالعكس من جدة إلى الرياض،
+
+ولديها في هاتين المنطقتين مئات العملاء ممن يشهدون للشركة ولفريقها بالاختلاف والتفوق.
+
+كما قامت الشركة بتنفيذ الكثير والكثير من أعمال فك وتركيب وتغليف ونقل الأثاث والعفش بين المناطق المختلفة والتي تبعد المسافات فيما بينها مثل الرياض والخرج وهي تصل إلى 95 كيلو متر،
+
+وأيضاً شحن عفش من الرياض الى ابها حيث تصل المسافة بينهما إلى 840 كم،
+
+وكذلك نقل عفش من الرياض الى الدمام حيث تقطع سيارة نقل الأثاث بين الرياض والدمام طريق طوله 380 كم.
+
+وتستخدم المتفوقة على جميع شركات شحن العفش بالرياض “الانجاز” أجود أنواع خامات تغليف الأثاث والعفش داخل المملكة على الإطلاق من البابلز والكرتون المقوى، والأشرطة اللاصقة،
+
+حيث تقوم الشركة بتغليف جميع قطع العفش والأثاث مثل:
+
+العفش المصنع من الأخشاب والزجاج والأبواب والتحف والنجف
+الأجهزة الكهربائية والأجهزة الإلكترونية
+السجاد وأواني المطبخ وحتى الملابس
+حيث تعمل خامات التغليف الجيدة على حفظ القطع والمقتنيات من الأتربة والخدوش التي قد تصيبها خلال الفك والتركيب والنقل.      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFive">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          الخبرة الفنية اللازمة لدى شركات شحن العفش في الرياض
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFive" class="collapse fontShow" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body">
+ويعمل بشركةالتميز لنقل وشحن الأثاث بالرياض وخارجها مجموعة من أمهر خبراء نقل الأثاث في المملكة،
+
+كما يعمل بالشركة عدد من الكوادر الفنية من نجارين وفنين كهرباء وتكييف،
+
+بجانب مجموعات مدربة من العمالة المتخصصة في عمليات نقل وتغليف الأثاث.
+
+وتثقل شركةالتميز خبرات العاملين بها وتدعمهم بصورة مستمرة بالدورات التدريبية المتخصصة في نقل العفش،
+
+كما تطلعهم بشكل مستمر على أحدث طرق ووسائل نقل الأثاث الموجودة بالعالم،
+
+فالعاملين بالشركة هم واجهتها وسفرائها لدى العملاء.      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingSix">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+    الأدوات المستخدمة لدى شركةالتميز
+        </button>
+      </h2>
+    </div>
+    <div id="collapseSix" class="collapse fontShow" aria-labelledby="headingSix" data-parent="#accordion">
+      <div class="card-body">
+ولدى الشركة مجموعة من المعدات والأدوات المساعدة في أداء مهمات نقل وتحريك الأثاث،
+
+قلما يجد العملاء مثيل لها بالشركات المنافسة بسوق نقل العفش والأثاث بالرياض أو السعودية.
+
+وتوفر تلك الأدوات والمعدات الحديثة عناء رفع وإنزال العفش والأثاث من المنازل والبنايات وخصوصًا الأدوار المرتفعة،
+
+كما تحافظ هذه المعدات على قطع الأثاث وتصونها من مخاطر الكسر والتجريح خلال تحريكها إلى الأماكن المراد وضعها بها.      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingEight">
+      <h2 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseEight" aria-expanded="true" aria-controls="collapseEight">
+سيارات التميز تُنجز المهام الصعبة        </button>
+      </h2>
+    </div>
+
+    <div id="collapseEight" class="collapse fontShow" aria-labelledby="headingEight" data-parent="#accordion">
+      <div class="card-body">
+وبالنسبة لأسطول سيارات شركة نقل عفش بالرياض التميز فلا شك أنه الأفضل بالمقارنة مع شركات نقل الأثاث والعفش بالمملكة،
+
+فالشركة تعمل ضمن خطة تحديث وتطوير دورية تطول كافة قطاعاتها ومن ضمنها أسطول سيارات الشركة.
+
+ومن المعروف أن نقل العفش والأثاث بشكل احترافي يحتاج إلى سيارات مجهزة خصيصًا لهذه الأغراض،
+
+فنظرًا لإمكانية تعرض بعض القطع للتلف فإنها تحتاج إلى أماكن مخصصة بسيارات نقل العفش لتحافظ عليها من عقبات الطريق.
+
+كما يتيح أسطول شركةالتميز لنقل الأثاث والعفش توصيل العفش والأثاث إلى كافة المناطق داخل وخارج المملكة السعودية،
+
+فسيارات الشركة قادرة على قطع مسافات تقدر بآلاف الكيلو مترات.      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingNine">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+أسعار خدمات الشحن والنقل لأثاث وأغراض عملائنا الأعزاء        </button>
+      </h2>
+    </div>
+    <div id="collapseNine" class="collapse fontShow" aria-labelledby="headingNine" data-parent="#accordion">
+      <div class="card-body">
+وتتفوقالتميز على الشركات المثيلة من حيث الأسعار، فأسعار نقل العفش التي تقدمها الشركة تنافسية، ولا ترتبط بمستوى العمل المقدم وجودته.
+
+وتوفر الشركة الخصومات على نقل وشحن العفش، كما توفر الخصومات والعروض على فك وتركيب الأثاث وتغليفه،      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingSeven">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+      شحن عفش من الرياض إلى الأردن
+        </button>
+      </h2>
+    </div>
+    <div id="collapseSeven" class="collapse fontShow" aria-labelledby="headingSeven" data-parent="#accordion">
+      <div class="card-body">
+تقدم شركةالتميز خدمة نقل الأثاث والعفش من العاصمة الرياض إلى المملكة الأردنية سواء إلى عمان أو مناطق الأردن الأخرى،
+
+ملتزمة في ذلك بتوفير وسائل الأمان اللازمة لحماية العفش والأثاث من مخاطر طول المسافات ومشكلات الطريق.
+
+ويطلق الكثيرون عن الرحلة من الرياض إلى عمان لفظ رحلة العذاب، نظرًا لطول المسافة بين المدينتين،
+
+إلا أن الشركة الأولى في شحن الأثاث بالسعودية “الإنجاز” توفر على عملائها كل معاناة قد يواجهونها وتتولي الشركة نقل العفش من الألف للياء.
+
+وسيارات شركةالتميز لنقل الأثاث مجهزة للحفاظ على سلامة العفش والأثاث عند السفر به عبر الطرق البرية من الرياض لعمان،
+
+حيث يوجد في كل سيارة مكان خاص بكل قطعة أثاث على حدا،
+
+فمثلًا توجد أماكن مخصصة لوضع القطع القابلة للكسر مثل ألواح الزجاج، وقطع الرخام، وغير ذلك.
+
+ويعتبر السوق الأردني من الأسواق المهمة لشركةالتميز، حيث تستهدف الشركة هذه السوق بقوة،
+
+وتسعى لتقديم خدمات قيمة لمن يرغب في نقل اثاث من الرياض الى الاردن وخاصة عمان،
+
+بالإضافة إلى باقي مناطق المملكة العربية السعودية والمملكة الأردنية.
+
+ومن أجل ذلك تقوم الشركة بتحديث أسطولها وتطويره بشكل دائم ودوري وتدريب السائقين على أجواء السفر بين السعودية والأردن.
+
+ولا شك أن حركة التجارة المتبادلة بين البلدين من ضمن العوامل المهمة التي تجعل التميز لنقل العفش تجتهد؛
+
+لتحافظ على ريادتها كواحدة من أكبر شركات نقل العفش بين السعودية والأردن.      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTen">
+      <h2 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseTen" aria-expanded="true" aria-controls="collapseTen">
+شحن ونقل أثاث من الرياض إلى قطر        </button>
+      </h2>
+    </div>
+
+    <div id="collapseTen" class="collapse fontShow" aria-labelledby="headingTen" data-parent="#accordion">
+      <div class="card-body">
+تبلغ المسافة بين الرياض والدوحة عاصمة قطر حوالي 650 كيلو متر،
+
+وتشتهر الطرق بين البلدين بكثرة حوادث السيارات فيها نظرًا للسرعات العالية،
+
+ولذلك تعين شركةالتميز لنقل الأثاث سائقين يتمتعون بالاحترافية والمسئولية،
+
+حرصًا من الشركة على الحفاظ على مقتنيات عملائها الذين وضعوا ثقتهم فيها،
+
+بجانب أنها تعطي للعملاء كافة الضمانات الخاصة بمسئوليتها عن هذه المقتنيات كونها افضل شركات شحن العفش بالرياض والسعودية ككل.
+
+وعن طريق خبراء الشركة فقد تم تحديد طرق معينة لسيارات الشركة للسير فيها خلال نقل الأثاث من الرياض إلى قطر،
+
+من أجل توفير الوقت قدر الإمكان بجانب الحفاظ على ما تحمله سيارات الشركة من قطع عفش وأجهزة منزلية كهربائية وإلكترونية قد تتضرر من المسافات ووعورة الطريق.
+
+وتحرص الشركة قبل شحن العفش من الرياض إلى الدوحة وباقي مناطق قطر على تغليفه بشكل جيد؛
+
+لتفادى الاحتكاكات التي قد تحدث له خلال الرحلة التي قد تصل مدتها إلى نحو 9 أو 10 ساعات،
+
+نظرًا لالتزام سيارات شركةالتميز بالسير بسرعات منخفضة.      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingEleven">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseEleven" aria-expanded="false" aria-controls="collapseEleven">
+      شحن ونقل أثاث من الرياض إلى الإمارات ( دبي / أبوظبي )
+        </button>
+      </h2>
+    </div>
+    <div id="collapseEleven" class="collapse fontShow" aria-labelledby="headingEleven" data-parent="#accordion">
+      <div class="card-body">
+توفر شركة شحن ونقل أثاثالتميز خدمات نقل العفش والأثاث من العاصمة السعودية الرياض إلى مدن دولة الإمارات العربية المتحدة مثل أبوظبي ، دبي ، الشارقة ،
+
+ويمكن الاستعانة بالشركة لتولى مثل هذه المهام دون القلق على الأثاث مهما كان حجمه أو قيمته المادية.
+
+ويمكن الاطلاع على خدماتنا في شحن اثاث من الرياض الى الامارات من هنا.
+
+فالانتشار في الدول العربية كان ولا يزال ضمن طموحات شركةالتميز، الشركة الأفضل لنقل وشحن العفش بالمملكة،
+
+ولذلك تحرص الشركة على ترك بصمة جيدة في أي بلد تصلها سياراتها.      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwelve">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwelve" aria-expanded="false" aria-controls="collapseTwelve">
+     أسعار شحن الأثاث بين الرياض والدول العربية وعواصمها
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwelve" class="collapse fontShow" aria-labelledby="headingTwelve" data-parent="#accordion">
+      <div class="card-body">
+وتقدم شركةالتميز أفضل عروض الأسعار لنقل الأثاث والعفش إلى دبي،
+
+فلا يعني على الإطلاق طول المسافة بين الرياض ودبي ضرورة تحميل العملاء لأعباء مضاعفة.
+
+كما تقدم التميز أفضل جودة نقل عفش من الرياض إلى أبوظبي ، وذلك من خلال فريق الشركة المؤلف من خبراء نقل الأثاث،
+
+يعاونهم فنيون وعمال على أعلى مستويات الوعي بنقل العفش.
+
+ويعتبر التواجد بسوق مثل السوق الإماراتي المعروف بتطوره ونموه السريع أمرًا ليس بالسهل على الشركات،
+
+ويفرض على كل من يعمل به مجموعة من الضوابط المهنية حتى يتمكن من الاستمرارية ومنافسة كبار الشركات والتي قد يكون بعضها عالميًا.      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThirteen">
+      <h2 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseThirteen" aria-expanded="true" aria-controls="collapseThirteen">
+      شحن ونقل عفش من الرياض إلى الكويت
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseThirteen" class="collapse fontShow" aria-labelledby="headingThirteen" data-parent="#accordion">
+      <div class="card-body">
+تتميز  مؤسسةالتميز كأحد شركات شحن العفش بالرياض فى خدمات نقل وتغليف وشحن الأثاث من الرياض للكويت،
+
+بما في ذلك فك العفش والأثاث وتركيبه. وتلتزم التميز كعهدها دائماً بالمدة الزمنية التي يقررها خبراء الشركة لنقل وتسليم العفش للعميل في المكان الجديد دون تأخير أو تجاوز في المدة.
+
+وتعتبر الإمكانيات التي تمتلكها المؤسسة من ضمن الأمور التي تؤهلها لتحقيق الريادة في سوق شحن ونقل الأثاث بمنطقة الخليج العربي،
+
+وبالتالي فمهمة نقل عفش من الرياض للكويت والتي قد يراها البعض عملية صعبة تعتبر في غاية السهولة لكوادر الشركة،
+
+والتي تؤهلها لتكون أفضل شركة نقل اثاث خارج المملكة ..      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFourteen">
+      <h2 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFourteen" aria-expanded="false" aria-controls="collapseFourteen">
+         شحن ونقل أثاث من الرياض إلى سلطنة عُمان
+        </button>
+      </h2>
+    </div>
+    <div id="collapseFourteen" class="collapse fontShow" aria-labelledby="headingFourteen" data-parent="#accordion">
+      <div class="card-body">
+تتيح الشركة لعملائها خدمة نقل عفش من الرياض إلى سلطنة عُمان.
+
+كما تحرص الشركة في العموم على تغيير النظرة السلبية السائدة عن شركات نقل الأثاث،
+
+من كونها شركات لا تلتزم بما تقرر القيام به مثل الالتزام بالمدد الزمنية المحددة لنقل العفش من مكان إلى آخر.
+
+ومن أجل تحقيق ذلك تقوم شركة شحن عفش خارج السعوديةالتميز بإعطاء الضمان الكامل على جميع المقتنيات الخاصة بالعميل،
+
+إلى أن تتم عملية التسليم في الجهة المنقول إليها العفش ويطمئن العميل على سلامتها تماماً.
+
+ويتمتع السوق العماني ببعض الخصائص التي تميزه عن باقي أسواق الخليج الأخرى،
+
+فالشعب العُماني له طبائعه الفريدة في فرش المنازل وتجهيزها، ولذلك يحتاج العملاء العُمانيين أو الذين ينتقلون للمعيشة في سلطنة عمان إلى من يتفهم فيهم تلك الجزئية، ويحقق لهم ما يطلبونه.
+
+وتتفهم إدارة الشركة هذه الجزئية جيدًا، ولذلك فهي توفر لكافة عملائها بالسلطنة كافة خدمات نقل العفش إلى كل الأماكن،
+
+مراعية في ذلك أعلى درجات الأمان والرقي في التعامل مع قطع الأثاث.
+
+يمكن لجميع عملائنا الكرام التواصل معنا في أي وقت نهاراً أو ليلاً حيث أن خدمة العملاء لدينا تعمل على مدار الأربعة والعشرين ساعة لنتمكن من تقديم خدمات احترافية على أكمل وجه.
+
+والخط الساخن لخدمة نقل وشحن الأثاث خارج الرياض هو 0500364661
+
+تم التحديث في 11 مارس، 2020 بواسطة شركةالتميز – شركة نقل عفش بالرياض      </div>
+    </div>
+  </div>
+ 
+</div>
+    
