@@ -38,7 +38,7 @@ namespace Furniture.MVC.Controllers
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
 
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("index", "Admin");
             }
 
             return View(user);
