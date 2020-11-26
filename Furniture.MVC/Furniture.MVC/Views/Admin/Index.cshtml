@@ -1,0 +1,106 @@
+﻿@model AdminDto
+@{
+    ViewData["Title"] = "لوحة تجكم موقع التميز";
+}
+<link rel="stylesheet" href="~/css/dash.css"    >
+<body class="sb-nav-fixed">
+    <div id="">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid">
+                    <h1 class="cPanal mt-4">لوحة التحكم</h1>
+                    <form class="row" enctype="multipart/form-data" asp-controller="admin" asp-action="add" role="form" method="post">
+                        <div class="col-md-4 col-12">
+                            <div class="articleData">
+                                <div class="col-12" id="form1">
+                                    <div class="alert"></div>
+                                    <div id='img_container'>
+                                        <img id="preview" src="" alt="يتم عرض الصورة هنا" title='صورة المقال' />
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <input type="file" id="inputGroupFile01" asp-for="Announcement.AnnouncePhotoPath" class="imgInp custom-file-input" aria-describedby="inputGroupFileAddon01">
+                                            <label class="custom-file-label" for="inputGroupFile01">اختر صورة للمقال</label>
+                                        </div><br>
+                                    </div>
+                                    <div class="dateAndPush">
+                                        <input type="date" asp-for="Announcement.ExpireDate">
+                                        <input type="submit" value="إرسال">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-12">
+                            <div class="articleDetails">
+                                <input class="col-12" type="text" placeholder="يتم كتابة هنا عنوان المقال....." asp-for="Announcement.AnnounceHeader">
+                                <textarea class="col-12" placeholder="يتم كتابة هنا نص المقال ......" asp-for="Announcement.AnnounceContent"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table mr-1"></i>
+                            مثال على الداتا بيز
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>االعميل</th>
+                                            <th>هاتف</th>
+                                            <th>العنوان</th>
+                                            <th>بريد اليكترونى</th>
+                                            <th>الخدمة</th>
+                                            <th>من مدينة</th>
+                                            <th>الى مدينة</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        @foreach (var service in Model.ServiceReports)
+                                        {
+                                            <tr>
+                                                <td>@service.UserName</td>
+                                                <td>@service.UserPhone</td>
+                                                <td>@service.Address</td>
+                                                <td>@service.UserEmail</td>
+                                                <td>@service.ServiceName</td>
+                                                <td>@service.FromCity</td>
+                                                <td>@service.ToCity</td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">جميع الحقوق محفوظة &copy; لدى موقع تميز</div>
+                        <div>
+                            <a href="https://www.facebook.com/Linux-109313914116329">تم الإنشاء بواسطة شركة لينكس للبرمجيات</a>
+                            &middot;
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!--  bootstrap js  -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.rtlcss.com/bootstrap/v4.0.0/js/bootstrap.min.js" integrity="sha384-54+cucJ4QbVb99v8dcttx/0JRx4FHMmhOWi4W+xrXpKcsKQodCBwAvu3xxkZAwsH" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+    <script src="assets/demo/datatables-demo.js"></script>
+</body>

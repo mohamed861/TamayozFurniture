@@ -1,0 +1,33 @@
+﻿
+@section Styles{ 
+<style>
+   /* .thanks_btn:hover{
+        text-decoration:underline;
+        text-underline-position:under;
+    }*/
+    .div_btn{
+        width:250px;
+    }
+</style>
+}
+<div class="container mb-5 alert-dark" style="margin-top:200px">
+    <div class="row">
+        <div class="col d-flex justify-content-center align-items-center pt-5">
+
+            <div class="mb-5 text-center">
+                <h2 class="text-success">
+                    <span>تم التسجيل بنجاح</span>
+                    <i class="fa fa-check main-content__checkmark" id="checkmark"></i>
+                </h2>
+
+                <h3>تم التسجيل فى موقعنا بنجاح .ممتنون لقضاء وقتك  فى تصفح موقعنا</h3>
+                <div class="btn btn-light btn-lg thanks_btn mr-md-5 mr-sm-0 div_btn mt-md-0 mt-3">
+                    <a asp-controller="commnet" asp-action="index" asp-route-id="@ViewBag.serviceId" style="color: #0077b5;">الاستمرار فى تصفح الخدمة</a>
+                </div>
+                <div class="btn btn-light btn-lg thanks_btn mt-md-0 mt-3 div_btn">
+                    <a href="/home/index" style="color: #0077b5;">العـــودة للرئيسيــة</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

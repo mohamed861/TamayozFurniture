@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Furniture.MVC.Data;
 using Furniture.MVC.DTO;
+using Microsoft.AspNetCore.Authorization;
+using Furniture.MVC.HelperClasses;
 
 namespace Furniture.MVC.Controllers
 {
@@ -39,10 +41,11 @@ namespace Furniture.MVC.Controllers
                 UserComments = userComments.Select(a => new UserCommentsDto
                 {
                     CommentText = a.CommentText,
-                    UserFullName = a.UserFullName
+                    UserFullName = a.UserFullName,
+                    Rating = a.Rating
+
                 }).ToList()
             };
-            homeDto.Announcements.First().Active = "active";
             return View(homeDto);
         }
 
@@ -57,6 +60,17 @@ namespace Furniture.MVC.Controllers
             return View();
         }
 
+        [NoDirectAccessAttribute]
+        public IActionResult Error()
+        {
+            return View();
+        }
+        [NoDirectAccessAttribute]
+        public IActionResult Thanks()
+        {
+            ViewBag.serviceId = TempData["ServiceId"];
+            return View();
+        }
 
     }
 }

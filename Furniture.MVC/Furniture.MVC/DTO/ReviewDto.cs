@@ -8,5 +8,6 @@ namespace Furniture.MVC.DTO
         public int AvaregRate { get; set; }
         public int TotalRates { get; set; }
         public RequestedServiceDto ServiceDto { get; set; }
+        public UserCommentsDto CommentsDto { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Furniture.MVC.Data;
 using Furniture.MVC.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,15 @@ namespace Furniture.MVC
             services.AddControllersWithViews();
             services.AddDbContext<DataContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<ITrackRepo, TrackRepo>();
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(op =>
+            {
+                op.LoginPath = "/auth/login";
+                op.Cookie.HttpOnly = true;
+                op.Cookie.Name = "linux";
+                op.AccessDeniedPath = "/auth/login";
+                op.ExpireTimeSpan = TimeSpan.FromDays(30);
+
+            });
 
         }
 
@@ -45,7 +55,7 @@ namespace Furniture.MVC
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -53,6 +63,11 @@ namespace Furniture.MVC
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    "Error",
+                    "{*.}",
+     new { controller = "Home", action = "Index" }
+);
             });
         }
     }

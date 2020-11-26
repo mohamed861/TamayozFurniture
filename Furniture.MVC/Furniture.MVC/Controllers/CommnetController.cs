@@ -17,16 +17,17 @@ namespace Furniture.MVC.Controllers
         {
             _repo = repo;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int id)
         {
             var cities = await _repo.GetKsacities();
-            var userComents = await _repo.GetComments();
+            var userComents = await _repo.GetComments(id);
             var averageRate = await _repo.GetAverageRate();
             var totalCount = await _repo.GetCommentCount();
             var reviewDto = new ReviewDto
             {
                 ServiceDto = new RequestedServiceDto
                 {
+                    ServiceId = id,
                     Ksacities = cities.Select(a => new cityDto
                     {
                         Id = a.Id,
@@ -43,8 +44,13 @@ namespace Furniture.MVC.Controllers
                     RequestServiceId = a.RequestServiceId
                 }).ToList(),
                 AvaregRate = (int)averageRate,
-                TotalRates = totalCount
+                TotalRates = totalCount,
+                CommentsDto = new UserCommentsDto
+                {
+                    RequestServiceId = id
+                }
             };
+            ViewBag.serviceId = id;
             return View(reviewDto);
         }
         public async Task<IActionResult> Comment(UserCommentsDto commentsDto)
@@ -56,10 +62,11 @@ namespace Furniture.MVC.Controllers
                 Rating = commentsDto.Rating,
                 UserEmail = commentsDto.UserEmail,
                 UserFullName = commentsDto.UserFullName,
+                RequestServiceId = commentsDto.RequestServiceId
             };
             await _repo.AddtComment(comment);
             await _repo.SaveChanges();
-            return Redirect("Index");
+            return RedirectToAction("thanks", "Home");
         }
         public async Task<IActionResult> Service(RequestedServiceDto serviceDto)
         {
@@ -72,10 +79,13 @@ namespace Furniture.MVC.Controllers
                 FullName = serviceDto.Name,
                 Phone = serviceDto.Phone,
                 RequestDate = DateTime.Now,
+                ServiceId = serviceDto.ServiceId
             };
             await _repo.AddOrder(service);
             await _repo.SaveChanges();
-            return Redirect("Index");
+            return RedirectToAction("thanks", "Home");
         }
+
+
     }
 }
