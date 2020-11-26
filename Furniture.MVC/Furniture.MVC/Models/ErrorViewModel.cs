@@ -1,5 +1,4 @@
 using System;
-
 namespace Furniture.MVC.Models
 {
     public class ErrorViewModel
