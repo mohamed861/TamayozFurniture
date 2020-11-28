@@ -28,6 +28,9 @@ namespace Furniture.MVC.Controllers
             {
                 ServiceReports = services,
                 Announcement = new AnnouncementDto()
+                {
+                    ExpireDate = DateTime.Now.AddDays(30)
+                }
             };
             return View(adminDto);
         }
@@ -35,35 +38,49 @@ namespace Furniture.MVC.Controllers
 
         public async Task<IActionResult> Add(AnnouncementDto announcementDto)
         {
-
-            var files = HttpContext.Request.Form.Files;
-            foreach (var img in files)
+            if (ModelState.IsValid)
             {
-                var destination = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img");
-                if (img != null && img.Length > 0)
+                var announce = new Announcement
                 {
-                    var timeNow = DateTime.UtcNow.Ticks;
-                    var path = timeNow + img.FileName;
-                    var fullpath = @Path.Combine(destination, path);
-                    using (var stream = new FileStream(fullpath, FileMode.Create, FileAccess.ReadWrite))
+                    AnnounceContent = announcementDto.AnnounceContent,
+                    AnnounceDate = DateTime.Now,
+                    AnnounceExpireDate = announcementDto.ExpireDate,
+                    AnnounceHeader = announcementDto.AnnounceHeader,
+
+                };
+                var files = HttpContext.Request.Form.Files;
+                foreach (var img in files)
+                {
+                    var destination = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img");
+                    if (img != null && img.Length > 0)
                     {
-                        await img.CopyToAsync(stream);
+                        var timeNow = DateTime.UtcNow.Ticks;
+                        var path = timeNow + img.FileName;
+                        var fullpath = @Path.Combine(destination, path);
+                        using (var stream = new FileStream(fullpath, FileMode.Create, FileAccess.ReadWrite))
+                        {
+                            await img.CopyToAsync(stream);
+                        }
+
+                        announce.AnnouncePhotoPath = path;
                     }
-
-                    var announce = new Announcement
-                    {
-                        AnnounceContent = announcementDto.AnnounceContent,
-                        AnnounceDate = DateTime.Now,
-                        AnnounceExpireDate = announcementDto.ExpireDate,
-                        AnnounceHeader = announcementDto.AnnounceHeader,
-                        AnnouncePhotoPath = path,
-
-                    };
-                    await _repo.AddAnnounce(announce);
-                    await _repo.SaveChanges();
                 }
+
+                await _repo.AddAnnounce(announce);
+                await _repo.SaveChanges();
+                return RedirectToAction("thanks", "Home");
             }
-            return RedirectToAction("thanks", "Home");
+            else
+            {
+                var services = await _repo.GetServiceReport();
+                var adminDto = new AdminDto
+                {
+                    ServiceReports = services,
+                    Announcement = announcementDto
+                };
+                return View("index", adminDto);
+            }
+
         }
     }
 }
