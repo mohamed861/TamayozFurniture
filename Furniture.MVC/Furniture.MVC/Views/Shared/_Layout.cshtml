@@ -30,6 +30,10 @@
     <link rel="stylesheet" href="~/css/magnific-popup.css">
     <!-- swiper CSS -->
     <link rel="stylesheet" href="~/css/slick.css">
+    <!-- pagination CSS -->
+    <link href="~/css/jquery.pajinatify.css" rel="stylesheet" />
+    <link href="~/css/jquery.pajinatify-rtl.css" rel="stylesheet" />
+    <link href="~/css/rateit.css" rel="stylesheet" />
     <!-- style CSS -->
     <link rel="stylesheet" href="~/css/style.css">
     <style>
@@ -52,6 +56,22 @@
         body {
             background-color: whitesmoke;
         }
+
+        @@media only screen and (max-width:299px) {
+            .my_phone, .my_phone i {
+                font-size: 14px;
+                margin-left: 30px;
+            }
+        }
+        .footer_links li a {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #6c757d;
+        }
+            .footer_links li a:hover {
+                color: #e83e8c;
+            }
     </style>
     @RenderSection("Styles", false)
 </head>
@@ -122,66 +142,34 @@
         </main>
     </div>
 
-    <footer class="footer_part">
-        <div class="container bg-muted">
-            <div class="row">
-                <div class="col-sm-6 col-lg-6">
+    <div class="container-fluid mt-5" style="background-color: #f8f9fa;">
+        <footer class=" container p-3" style="background-color: #f8f9fa;">
+            <div class="row" style="background-color: #f8f9fa;">
+                <div class="col-sm-4 col-lg-4">
                     <div class="single_footer_part">
-                        
-                        <h4 style="font-family:'Cairo', sans-serif" class="pb-2">نبذة عنا</h4>
-                        <p>
-                            Heaven fruitful doesn't over lesser days appear creeping seasons so behold bearing days open
-                        </p>
-                        <!--<a href="index.html" class="footer_logo_iner"> <img src="~/img/logo.png" alt="#"> </a>-->
+
+                        <a href="index.html" class="footer_logo_iner"> <img src="~/img/logo.png" width="70%" alt="#"> </a>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-6">
+                <div class="col-sm-4 col-lg-4 text-center">
                     <div class="single_footer_part">
-                        <h4 style="font-family:'Cairo', sans-serif" class="pb-2">معلومات الاتصال</h4>
-                        <p>
-                            Address : Your address goes
-                            here, your demo address.
-                            Bsngladesh.
-                        </p>
-                        <p>Phone : +8880 44338899</p>
-                        <p>Email : info@colorlib.com</p>
-                    </div>
-                </div>
-                <!--<div class="col-sm-6 col-lg-3">
-                    <div class="single_footer_part">
-                        <h4>Important Link</h4>
-                        <ul class="list-unstyled">
-                            <li><a href=""> WHMCS-bridge</a></li>
-                            <li><a href="">Search Domain</a></li>
-                            <li><a href="">My Account</a></li>
-                            <li><a href="">Shopping Cart</a></li>
-                            <li><a href="">Our Shop</a></li>
+                        <ul class="footer_links">
+                            <li><a asp-controller="Home" asp-action="index">الرئيسية</a></li>
+                            <li><a asp-controller="Home" asp-action="contact">اتصل بنا</a></li>
+                            <li><a asp-controller="Commnet" asp-action="index" asp-route-id="1">نقل أثاث</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-sm-6 col-lg-3">
+                <div class="col-sm-4 col-lg-4 d-flex justify-content-center">
                     <div class="single_footer_part">
-                        <h4>Newsletter</h4>
-                        <p>
-                            Heaven fruitful doesn't over lesser in days. Appear creeping seasons deve behold bearing days
-                            open
-                        </p>
-                        <div id="mc_embed_signup">
-                            <form target="_blank"
-                                  action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                                  method="get" class="subscribe_form relative mail_part">
-                                <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
-                                       class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
-                                       onblur="this.placeholder = ' Email Address '">
-                                <button type="submit" name="submit" id="newsletter-submit"
-                                        class="email_icon newsletter-submit button-contactForm">
-                                    <i class="far fa-paper-plane"></i>
-                                </button>
-                                <div class="mt-10 info"></div>
-                            </form>
-                        </div>
+                        <ul class="footer_links">
+                            <li><a asp-controller="Commnet" asp-action="index" asp-route-id="3">تغليف أثاث</a></li>
+                            <li><a asp-controller="Commnet" asp-action="index" asp-route-id="2">فك وتركيب أثاث</a></li>
+                            <li><a asp-controller="Commnet" asp-action="index" asp-route-id="4">تخزين أثاث</a></li>
+                        </ul>
                     </div>
-                </div>-->
+                </div>
+
             </div>
             <hr>
 
@@ -211,8 +199,9 @@
                     </a>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
+</script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
@@ -269,6 +258,9 @@
     <script src="~/js/mail-script.js"></script>
     <script src="~/js/stellar.js"></script>
     <script src="~/js/price_rangs.js"></script>
+    <!-- pagination js -->
+    <!--<script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/jquery.pajinatify.js"></script>-->
     <!-- custom js -->
     <script src="~/js/custom.js"></script>
     <script src="~/js/delivery.js"></script>

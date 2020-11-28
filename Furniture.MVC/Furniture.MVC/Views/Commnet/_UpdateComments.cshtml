@@ -1,0 +1,27 @@
+﻿@model IEnumerable<UsersComment>
+@foreach (var review in Model)
+{
+    <div class="row mb-1">
+        <div class="col-12">
+            <div class="review_item"
+                 style="background-color:white;padding:15px;">
+                <div class="media">
+
+                    <div class="media-body">
+                        <h4>@review.UserFullName</h4>
+
+                        @*@await Html.PartialAsync("rate", review.Rating)*@
+                        <div class="rateit" data-rateit-value="@review.Rating" data-rateit-ispreset="true" data-rateit-readonly="true">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="col-12">
+                        @review.CommentText
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}

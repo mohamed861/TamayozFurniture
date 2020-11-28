@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Furniture.MVC.Data;
 using Furniture.MVC.DTO;
+using Furniture.MVC.HelperClasses;
 using Furniture.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,10 +20,13 @@ namespace Furniture.MVC.Controllers
         }
         public async Task<IActionResult> Index(int id)
         {
+
+            if (id > 4 || id < 1)
+                return RedirectToAction("Index", "Home");
             var cities = await _repo.GetKsacities();
             var userComents = await _repo.GetComments(id);
-            var averageRate = await _repo.GetAverageRate();
-            var totalCount = await _repo.GetCommentCount();
+            var averageRate = await _repo.GetAverageRate(id);
+            var totalCount = await _repo.GetCommentCount(id);
             var reviewDto = new ReviewDto
             {
                 ServiceDto = new RequestedServiceDto
@@ -44,6 +48,7 @@ namespace Furniture.MVC.Controllers
                     RequestServiceId = a.RequestServiceId
                 }).ToList(),
                 AvaregRate = (int)averageRate,
+                AvaregRateFraction=Math.Round((decimal)averageRate,1),
                 TotalRates = totalCount,
                 CommentsDto = new UserCommentsDto
                 {
@@ -51,6 +56,8 @@ namespace Furniture.MVC.Controllers
                 }
             };
             ViewBag.serviceId = id;
+            TempData["ServiceId"] =$"{id}";
+            ViewBag.serCommentsCount = await _repo.GetSerCommentsCount(id);
             return View(reviewDto);
         }
         public async Task<IActionResult> Comment(UserCommentsDto commentsDto)
@@ -86,6 +93,20 @@ namespace Furniture.MVC.Controllers
             return RedirectToAction("thanks", "Home");
         }
 
-
+        [HttpGet]
+        [NoDirectAccess]
+        public async Task<IActionResult> UpdateComments(int id, string serviceId)
+        {
+            try
+            {
+                int serviceID = Convert.ToInt32(serviceId);
+                var userComents = await _repo.UpdateComments(serviceID, id);
+                return PartialView("_UpdateComments", userComents);
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Error", "Home");
+            }
+        }
     }
 }
