@@ -11,7 +11,7 @@ namespace Furniture.MVC.DTO
         [EmailAddress(ErrorMessage = "الايميل غير صحيح")]
         [Required(ErrorMessage = "يجب ادخال الايميل")]
         public string UserEmail { get; set; }
-        public int? Rating { get; set; }
+        public decimal? Rating { get; set; }
         [Required(ErrorMessage = "يجب ادخال الاسم")]
         [StringLength(20, ErrorMessage = "يجب ألا تزيد عدد الأحرف عن 20 حرفاً")]
         public string UserFullName { get; set; }

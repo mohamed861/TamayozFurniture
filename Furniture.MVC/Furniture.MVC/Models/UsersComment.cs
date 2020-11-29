@@ -11,7 +11,7 @@ namespace Furniture.MVC.Models
         public string CommentText { get; set; }
         public DateTime? CommentDate { get; set; }
         public string UserEmail { get; set; }
-        public int? Rating { get; set; }
+        public decimal? Rating { get; set; }
         public string UserFullName { get; set; }
         public int? RequestServiceId { get; set; }
 
