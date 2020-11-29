@@ -48,7 +48,7 @@ namespace Furniture.MVC.Controllers
                     RequestServiceId = a.RequestServiceId
                 }).ToList(),
                 AvaregRate = (int)averageRate,
-                AvaregRateFraction=Math.Round((decimal)averageRate,1),
+                AvaregRateFraction = Math.Round((decimal)averageRate, 1),
                 TotalRates = totalCount,
                 CommentsDto = new UserCommentsDto
                 {
@@ -56,7 +56,7 @@ namespace Furniture.MVC.Controllers
                 }
             };
             ViewBag.serviceId = id;
-            TempData["ServiceId"] =$"{id}";
+            TempData["ServiceId"] = $"{id}";
             ViewBag.serCommentsCount = await _repo.GetSerCommentsCount(id);
             return View(reviewDto);
         }

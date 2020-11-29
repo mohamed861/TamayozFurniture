@@ -1,0 +1,35 @@
+﻿@model AnnouncementDto
+<form class="row" enctype="multipart/form-data" asp-controller="admin" asp-action="add" role="form" method="post">
+    <div class="col-md-4 col-12">
+        <div class="articleData">
+            <div class="col-12">
+                <div class="alert"></div>
+                <div id='img_container'>
+                    <img id="preview" src="" alt="يتم عرض الصورة هنا" title='صورة المقال' />
+                </div>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" id="AnnouncePhotoPath" asp-for="AnnouncePhotoPath" class="imgInp custom-file-input" aria-describedby="AnnouncePhotoPath">
+                        <label class="custom-file-label" for="AnnouncePhotoPath">اختر صورة للمقال</label>
+                    </div><br>
+                </div>
+                <div class="dateAndPush">
+                    <input type="date" id="ExpireDate" asp-for="ExpireDate">
+                    <span asp-validation-for="ExpireDate" class="text-danger"></span>
+
+                    <input type="submit" value="إرسال">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 col-12">
+        <div class="articleDetails">
+            <input class="col-12" type="text" placeholder="يتم كتابة هنا عنوان المقال....." id="AnnounceHeader" asp-for="AnnounceHeader">
+            <span asp-validation-for="AnnounceHeader" class="text-danger"></span>
+
+            <textarea class="col-12" placeholder="يتم كتابة هنا نص المقال ......" id="AnnounceContent" asp-for="AnnounceContent"></textarea>
+            <span asp-validation-for="AnnounceContent" class="text-danger"></span>
+
+        </div>
+    </div>
+</form>
