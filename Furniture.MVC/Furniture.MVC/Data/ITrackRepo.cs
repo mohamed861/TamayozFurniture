@@ -15,7 +15,7 @@ namespace Furniture.MVC.Data
         Task<List<UsersComment>> UpdateComments(int serviceId, int pageNumber);
         Task<UsersComment> AddtComment(UsersComment comment);
         Task<RequestService> AddOrder(RequestService order);
-        Task<decimal?> GetAverageRate(int id = 0);
+        Task<double?> GetAverageRate(int id = 0);
         Task<int> GetCommentCount(int id = 0);
         Task<List<Announcement>> GetAnnounces();
         Task<bool> SaveChanges();

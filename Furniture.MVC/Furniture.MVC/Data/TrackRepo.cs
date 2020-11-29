@@ -64,7 +64,7 @@ namespace Furniture.MVC.Data
             return comment;
         }
 
-        public async Task<decimal?> GetAverageRate(int id = 0)
+        public async Task<double?> GetAverageRate(int id = 0)
         {
             return await _context.UsersComments.Where(x => id > 0 ? x.RequestServiceId == id : true).AverageAsync(a => a.Rating);
 

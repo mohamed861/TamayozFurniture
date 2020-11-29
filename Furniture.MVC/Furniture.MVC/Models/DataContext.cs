@@ -141,9 +141,7 @@ namespace Furniture.MVC.Models
 
                 entity.Property(e => e.CommentText).HasColumnName("commentText");
 
-                entity.Property(e => e.Rating)
-                    .HasColumnType("decimal(18, 0)")
-                    .HasColumnName("rating");
+                entity.Property(e => e.Rating).HasColumnName("rating");
 
                 entity.Property(e => e.RequestServiceId).HasColumnName("requestServiceId");
 
