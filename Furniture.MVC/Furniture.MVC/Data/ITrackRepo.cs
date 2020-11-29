@@ -11,10 +11,12 @@ namespace Furniture.MVC.Data
         Task<List<Ksacity>> GetKsacities();
         Task<List<Service>> GetServices();
         Task<List<UsersComment>> GetComments(int id = 0);
+        Task<int> GetSerCommentsCount(int id = 0);
+        Task<List<UsersComment>> UpdateComments(int serviceId, int pageNumber);
         Task<UsersComment> AddtComment(UsersComment comment);
         Task<RequestService> AddOrder(RequestService order);
-        Task<double?> GetAverageRate();
-        Task<int> GetCommentCount();
+        Task<double?> GetAverageRate(int id = 0);
+        Task<int> GetCommentCount(int id = 0);
         Task<List<Announcement>> GetAnnounces();
         Task<bool> SaveChanges();
         Task<User> Login(string userName, string password);

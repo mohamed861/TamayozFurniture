@@ -5,6 +5,7 @@ using Furniture.MVC.Data;
 using Furniture.MVC.DTO;
 using Microsoft.AspNetCore.Authorization;
 using Furniture.MVC.HelperClasses;
+using System;
 
 namespace Furniture.MVC.Controllers
 {
@@ -19,34 +20,42 @@ namespace Furniture.MVC.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var services = await _repo.GetServices();
-            var announces = await _repo.GetAnnounces();
-            var userComments = await _repo.GetComments();
-            var homeDto = new HomeDto
+            try
             {
-                Services = services.Select(a => new ServiceDto
-                {
-                    Id = a.Id,
-                    ServiceName = a.ServiceName,
-                    ServiceDescription = a.ServiceDescription,
-                    ServicePhotoPath = a.ServicePhotoPath,
-                    ServiceSubHeader = a.ServiceSubHeader
-                }).ToList(),
-                Announcements = announces.Select(a => new AnnouncementDto
-                {
-                    AnnounceContent = a.AnnounceContent,
-                    AnnounceHeader = a.AnnounceHeader,
-                    AnnouncePhotoPath = a.AnnouncePhotoPath
-                }).ToList(),
-                UserComments = userComments.Select(a => new UserCommentsDto
-                {
-                    CommentText = a.CommentText,
-                    UserFullName = a.UserFullName,
-                    Rating = a.Rating
 
-                }).ToList()
-            };
-            return View(homeDto);
+                var services = await _repo.GetServices();
+                var announces = await _repo.GetAnnounces();
+                var userComments = await _repo.GetComments();
+                var homeDto = new HomeDto
+                {
+                    Services = services.Select(a => new ServiceDto
+                    {
+                        Id = a.Id,
+                        ServiceName = a.ServiceName,
+                        ServiceDescription = a.ServiceDescription,
+                        ServicePhotoPath = a.ServicePhotoPath,
+                        ServiceSubHeader = a.ServiceSubHeader
+                    }).ToList(),
+                    Announcements = announces.Select(a => new AnnouncementDto
+                    {
+                        AnnounceContent = a.AnnounceContent,
+                        AnnounceHeader = a.AnnounceHeader,
+                        AnnouncePhotoPath = a.AnnouncePhotoPath
+                    }).ToList(),
+                    UserComments = userComments.Select(a => new UserCommentsDto
+                    {
+                        CommentText = a.CommentText,
+                        UserFullName = a.UserFullName,
+                        Rating = a.Rating
+
+                    }).ToList()
+                };
+                return View(homeDto);
+            }
+            catch(Exception e)
+            {
+                return RedirectToAction("Error");
+            }
         }
 
         public IActionResult Contact()

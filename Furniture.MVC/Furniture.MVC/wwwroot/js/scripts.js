@@ -36,7 +36,7 @@ function readURL(input) {
     filename = filename.substring(filename.lastIndexOf('\\')+1);
     reader.onload = function(e) {
       $('#preview').attr('src', e.target.result);
-      $('#preview').hide();
+      //$('#preview').hide();
       $('#preview').fadeIn(500);            
     }
     reader.readAsDataURL(input.files[0]);    

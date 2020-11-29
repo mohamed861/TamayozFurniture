@@ -1,60 +1,69 @@
 ﻿@model ReviewDto
-<div class="tab-pane fade show active" id="review" role="tabpanel" aria-labelledby="review-tab">
-    <div class="row">
-        <div class="col-lg-6">
-            <div class="row total_rate">
-                <div class="col-6">
-                    <div class="box_total">
-                        <h5>متوسط التقييمات</h5>
-                        <h4>@Model.AvaregRate</h4>
-                        <h6>(التقييمات @Model.TotalRates)</h6>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="row total_rate">
+            <div class="col-md-6">
+                <div class="box_total" style="background-color:white;">
+                    <h5>متوسط التقييمات</h5>
+                    <!--<h4>-->@*@Model.AvaregRate*@<!--</h4>-->
+                    <h4>@Model.AvaregRateFraction</h4>
+                    <div class="rateit" data-rateit-value="@Model.AvaregRateFraction" data-rateit-ispreset="true" data-rateit-readonly="true">
                     </div>
-                </div>
-                <div class="col-6">
-                    <div class="rating_list">
-                        <!--<h3>Based on 3 Reviews</h3>-->
-                        <ul class="list">
-                            <li>
-                                <a>
-                                    @await Html.PartialAsync("rate", Model.AvaregRate)
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    <h6>(التقييمات @Model.TotalRates)</h6>
                 </div>
             </div>
-            <div class="review_list">
-
-                @foreach (var review in Model.UserComments)
-                {
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="review_item">
-                                <div class="media">
-                                    <div class="d-flex">
-                                        <img src="~/img/product/single-product/review-1.png" alt="" />
-                                    </div>
-                                    <div class="media-body">
-                                        <h4>@review.UserFullName</h4>
-                                        @await Html.PartialAsync("rate", review.Rating)
-                                    </div>
-                                </div>
-                                <div>
-                                    <p class="col-9 break-word">
-                                        @review.CommentText
-                                    </p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                }
+            <div class="col-6">
+                <div class="rating_list">
+                    <!--<h3>Based on 3 Reviews</h3>-->
+                    <ul class="list">
+                        <li>
+                            @*<a>
+                                @await Html.PartialAsync("rate", Model.AvaregRate)
+                              
+                            </a>*@
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="col-lg-6">
-            <div class="review_box">
-                @await Html.PartialAsync("comment_form", Model.CommentsDto);
-            </div>
+
+    </div>
+    <div class="col-lg-6">
+        <div class="review_box">
+            @* *********** problem & solution*************@
+            @await Html.PartialAsync("comment_form",
+           new UserCommentsDto() { RequestServiceId=Model.ServiceDto.ServiceId})
         </div>
     </div>
 </div>
+<div class="container mt-5">
+    <div id="replaceComments">
+
+        @foreach (var review in Model.UserComments)
+        {
+            <div class="row mb-1">
+                <div class="col-12">
+                    <div class="review_item"
+                         style="background-color:white;padding:15px;">
+                        <div class="media">
+
+                            <div class="media-body">
+                                <h4>@review.UserFullName</h4>
+                                @*@await Html.PartialAsync("rate", review.Rating)*@
+                            <div class="rateit" data-rateit-value="@review.Rating" data-rateit-ispreset="true" data-rateit-readonly="true">
+                            </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="col-12">
+                                @review.CommentText
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

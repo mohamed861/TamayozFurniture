@@ -45,10 +45,10 @@
             color: #FFD700;
         }
 </style>
-<form class="row contact_form" asp-action="comment" method="post" role="form" novalidate="novalidate">
+<form class="row contact_form" asp-action="comment" method="post" role="form">
     <h4 style="margin-left:10px">أضف رأيك</h4>
-    <p>تقييمك :</p>
-    <div class="rating">
+    <p class="mr-4 ml-5">تقييمك :</p>
+    @*<div class="rating">
         <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
 
         <label for="star5" onclick="setValuu(5)"><i class="fa fa-star fa-lg"></i></label>
@@ -61,7 +61,10 @@
         <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
         <label for="star1" onclick="setValuu(1)"><i class="fa fa-star fa-lg"></i></label>
         <div class="clear"></div>
-        <input id="rating" asp-for="Rating" type="hidden" />
+    </div>*@
+    <input id="rating" asp-for="Rating" type="hidden" />
+    <div class="mt-1">
+        <div class="rateit" data-rateit-value="" data-rateit-readonly="false" id="rateitval"></div>
     </div>
     <div class="col-md-12">
         <div class="form-group">
@@ -100,9 +103,16 @@
         </button>
     </div>
 </form>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
 <script>
-    function setValuu(a) {
-        console.log(a);
-        document.getElementById("rating").value = a;
-    }
+    //function setValuu(a) {
+    //    console.log(a);
+    //    document.getElementById("rating").value = a;
+    //}
+    $("#rateitval").click(function () {
+
+        document.getElementById("rating").value = $(this).rateit('value');
+    });
+   
 </script>

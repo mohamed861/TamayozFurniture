@@ -26,6 +26,7 @@ namespace Furniture.MVC.DTO
         public string Email { get; set; }
         [Phone(ErrorMessage = "هاتف غير صالح")]
         [Required(ErrorMessage = "يجب ادخال الهاتف")]
+        [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
     }
 }

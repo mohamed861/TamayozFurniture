@@ -42,9 +42,21 @@ namespace Furniture.MVC.Data
 
         public async Task<List<UsersComment>> GetComments(int id = 0)
         {
-            var comments = await _context.UsersComments.Where(x => id > 0 ? x.RequestServiceId == id : true).ToListAsync();
+            var commentsCount = await _context.UsersComments.Where(x => id > 0 ? x.RequestServiceId == id : true).Take(7).ToListAsync();
+            return commentsCount;
+        }
+        public async Task<int> GetSerCommentsCount(int id = 0)
+        {
+            var comments = await _context.UsersComments.Where(x => id > 0 ? x.RequestServiceId == id : true).CountAsync();
             return comments;
         }
+        public async Task<List<UsersComment>> UpdateComments(int serviceId, int pageNumber)
+        {
+            var skippedComments = (pageNumber - 1) * 7;
+            var comments = await _context.UsersComments.Where(x => x.RequestServiceId == serviceId).Skip(skippedComments).Take(7).ToListAsync();
+            return comments;
+        }
+
 
         public async Task<UsersComment> AddtComment(UsersComment comment)
         {
@@ -52,15 +64,15 @@ namespace Furniture.MVC.Data
             return comment;
         }
 
-        public async Task<double?> GetAverageRate()
+        public async Task<double?> GetAverageRate(int id = 0)
         {
-            return await _context.UsersComments.AverageAsync(a => a.Rating);
+            return await _context.UsersComments.Where(x => id > 0 ? x.RequestServiceId == id : true).AverageAsync(a => a.Rating);
 
         }
 
-        public async Task<int> GetCommentCount()
+        public async Task<int> GetCommentCount(int id = 0)
         {
-            return await _context.UsersComments.CountAsync();
+            return await _context.UsersComments.Where(x => id > 0 ? x.RequestServiceId == id : true).CountAsync();
         }
 
         public async Task<List<Announcement>> GetAnnounces()
